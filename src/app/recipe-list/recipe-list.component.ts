@@ -39,10 +39,15 @@ export class RecipeListComponent implements OnInit {
 
   getAllRecipes = () => {
     this.api.getRecipe().subscribe((data: ApiData) => {
+      
       this.recipes = data.hits;
+
+
       for ( let recipe of this.recipes){
       this.name += recipe.recipe.label;
       }
+
+
       console.log(this.recipes);
     });
   }
