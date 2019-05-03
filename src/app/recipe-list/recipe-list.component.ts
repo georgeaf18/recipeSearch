@@ -6,6 +6,10 @@ import {Api} from '../services/api.service'
     url: string;
     image: string;
     ingredients: [];
+    totalTime: number;
+    calories: number;
+    healthLabels: string;
+
   }
 
   interface Recipe {
@@ -32,6 +36,8 @@ export class RecipeListComponent implements OnInit {
   url: string;
   ingredients;
   image;
+
+
 
   ngOnInit
 

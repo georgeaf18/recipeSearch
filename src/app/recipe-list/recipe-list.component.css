@@ -1,12 +1,23 @@
+.search {
+    text-align: center;
+}
+
 .search_button {
     width: 200px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;  
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .recipe_div {
     border: solid black 2px;
     width: 30%;
-    display: inline-block;
-    margin: 50px;
+    padding: 10px;
+    margin: 10px;
 }
 
 .recipe_img {
