@@ -1,4 +1,16 @@
 <button (click)='getAllRecipes()'>hjhjh</button>
 
-<p>this is a test</p>
-<p>this is also a test</p>
+<div >
+<div style='border: solid black 2px' *ngFor='let recipe of recipes'>
+  
+  {{recipe.recipe.label}}
+  {{recipe.recipe.url}}
+  {{recipe.recipe.ingredientLines}}
+
+  <img src={{recipe.recipe.image}} alt="">
+  
+  
+</div>
+
+</div>
+
