@@ -1,0 +1,21 @@
+.search_button {
+    width: 200px;
+}
+
+.recipe_div {
+    border: solid black 2px;
+    width: 30%;
+    display: inline-block;
+    margin: 50px;
+}
+
+.recipe_img {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    display: block;
+}
+
+.recipe_heading {
+    text-align: center;
+}

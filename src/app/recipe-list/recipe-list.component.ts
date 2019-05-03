@@ -1,13 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import {Api} from '../services/api.service'
 
+  interface RecipeInfo {
+    label: string;
+    url: string;
+    image: string;
+    ingredients: [];
+  }
+
   interface Recipe {
     count:number;
+    recipe: RecipeInfo [];
 
   }
 
   interface ApiData {
     results: Recipe;
+    hits: Recipe[];
   }
 
 @Component({
@@ -19,7 +28,7 @@ import {Api} from '../services/api.service'
 export class RecipeListComponent implements OnInit {
 
   recipes: Recipe[];
-  name: string;
+  name = [];
   url: string;
   ingredients;
   image;
@@ -31,8 +40,10 @@ export class RecipeListComponent implements OnInit {
   getAllRecipes = () => {
     this.api.getRecipe().subscribe((data: ApiData) => {
       this.recipes = data.hits;
-      
-      console.log(data.hits);
+      for ( let recipe of this.recipes){
+      this.name += recipe.recipe.label;
+      }
+      console.log(this.recipes);
     });
   }
   
