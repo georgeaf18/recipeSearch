@@ -1,12 +1,14 @@
-<button (click)='getAllRecipes()'>hjhjh</button>
+<button (click)='getAllRecipes()' class='search_button btn btn-primary' >Search</button>
 <div >
-<div style='border: solid black 2px' *ngFor='let recipe of recipes'>
+<div class="recipe_div"  *ngFor='let recipe of recipes'>
   
-  {{recipe.recipe.label}}
-  {{recipe.recipe.url}}
-  {{recipe.recipe.ingredientLines}}
+  <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
+  <!-- <ul>
+    <li *ngFor = 'let ingredient of recipe.recipe.ingredientLines'>{{ingredient}}</li>
 
-  <img src={{recipe.recipe.image}} alt="">
+  </ul> -->
+
+  <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
   
   
 </div>
