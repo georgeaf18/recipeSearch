@@ -3,12 +3,14 @@ import {HttpClient} from '@angular/common/http'
 
 @Injectable()
 
-export class Api {
+
     appId: string = '00a41518';
     appKey: string = '482baab8eed3d4133ec335372e8171b8';
     recipeUrl: string;
     fromNumber: number = 0;
     toNumber: number = 6;
+
+
     constructor( private http: HttpClient) {}
     
     getRecipe = () => {
