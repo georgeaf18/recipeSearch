@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http'
 
 @Injectable()
 
-
+export class Api {
     appId: string = '00a41518';
     appKey: string = '482baab8eed3d4133ec335372e8171b8';
     recipeUrl: string;
