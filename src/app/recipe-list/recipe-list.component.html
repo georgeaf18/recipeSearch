@@ -1,12 +1,12 @@
 <h1>Nom Nom Recipes</h1>
 
 <div class="search">
-<input type="text" placeholder="Search for a recipe"/>
-<button (click)='getAllRecipes()' class='search_button btn btn-primary' >Search</button>
+  <input type="text" placeholder="Search for a recipe"/>
+  <button (click)='getAllRecipes()' class='search_button btn btn-primary' >Search</button>
 </div>
 
 <div class="container">
-<div class="recipe_div"  *ngFor='let recipe of recipes'>
+  <div class="recipe_div"  *ngFor='let recipe of recipes'>
   
   <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
   <!-- <ul>
