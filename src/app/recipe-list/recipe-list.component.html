@@ -1,4 +1,32 @@
+<<<<<<< Updated upstream
 <button (click)='getAllRecipes()'>hjhjh</button>
+=======
+<h1>Nom Nom Recipes</h1>
+
+<div class="search">
+  <input type="text" placeholder="Search for a recipe"/>
+  <button (click)='getAllRecipes()' class='search_button btn btn-primary' >Search</button>
+</div>
+
+<div class="container">
+  <div class="recipe_div"  *ngFor='let recipe of recipes'>
+  
+  <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
+  <!-- <ul>
+    <li *ngFor = 'let ingredient of recipe.recipe.ingredientLines'>{{ingredient}}</li>
+
+  </ul> -->
+
+  <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
+  
+  <p>Health labels: {{ recipe.recipe.healthLabels }}</p>
+  <p>Time to Prepare: {{ recipe.recipe.totalTime }} minutes</p>
+  <p>Calories: {{ recipe.recipe.calories | number: '1.0-0'}}</p>
+  <button *ngIf='!item.favorite' (click)='addFavorite(item)' >Favorite</button>
+</div>
+
+</div>
+>>>>>>> Stashed changes
 
 <p>this is a test</p>
 <p>this is also a test</p>
