@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import {Api} from '../services/api.service'
+import { Api } from '../services/api.service'
 
-  interface RecipeInfo {
-    label: string;
-    url: string;
-    image: string;
-    ingredients: [];
-    totalTime: number;
-    calories: number;
-    healthLabels: string;
+interface RecipeInfo {
+  label: string;
+  url: string;
+  image: string;
+  ingredients: [];
+  totalTime: number;
+  calories: number;
+  healthLabels: string;
 
-  }
+}
 
-  interface Recipe {
-    count:number;
-    recipe: RecipeInfo [];
+interface Recipe {
+  count: number;
+  recipe: RecipeInfo[];
 
-  }
+}
 
-  interface ApiData {
-    results: Recipe;
-    hits: Recipe[];
-  }
+interface ApiData {
+  results: Recipe;
+  hits: Recipe[];
+}
 
 @Component({
   selector: 'recipe-list',
@@ -29,34 +29,22 @@ import {Api} from '../services/api.service'
   styleUrls: ['./recipe-list.component.css'],
   providers: [Api]
 })
+
 export class RecipeListComponent implements OnInit {
-
   recipes: Recipe[];
-  name = [];
-  url: string;
-  ingredients;
-  image;
+  searchInput: String;
 
+  constructor(private api: Api) { }
 
+  ngOnInit() {
+    this.api.getRecipe(null).subscribe((data: ApiData) => {
+      this.recipes = data.hits.slice(0, 20);
+    }); 
+  }
 
-  ngOnInit
-
-  constructor (private api: Api) {}
-
-  getAllRecipes = () => {
-    this.api.getRecipe().subscribe((data: ApiData) => {
-      
+  filterRecipes = () => {
+    this.api.getRecipe(this.searchInput).subscribe((data: ApiData) => {
       this.recipes = data.hits;
-
-
-      for ( let recipe of this.recipes){
-      this.name += recipe.recipe.label;
-      }
-
-
-      console.log(this.recipes);
     });
   }
-  
-
 }
