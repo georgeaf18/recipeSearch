@@ -7,6 +7,17 @@ h1 {
 
 .search_button {
     width: 200px;
+    margin: 10px;
+}
+
+.subFilter {
+    margin: 10px 10px 10px 0px;
+    width: 100px;
+    font-size: 12px;
+}
+
+.seachInput {
+    margin: 10px;
 }
 
 .container {

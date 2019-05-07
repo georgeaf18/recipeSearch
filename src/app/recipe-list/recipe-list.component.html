@@ -1,8 +1,30 @@
 <h1>Nom Nom Recipes</h1>
 
 <div class="search">
-  <input type="text" placeholder="Search for a recipe"/>
-  <button (click)='getAllRecipes()' class='search_button btn btn-primary' >Search</button>
+  <input [(ngModel)]="searchInput" (change)="filterRecipes()" class="searchInput" type="text" placeholder="Search for a recipe"/>
+  <br />
+  
+  <select class="subFilter">
+    <option value="calories">Calories</option>
+    <option value="small">500-700</option>
+    <option value="medium">701-1,000</option>
+    <option value="large">1,001-above</option>
+  </select>
+
+  <select class="subFilter">
+    <option value="calories">Health Type</option>
+    <option value="small">Light on Sugar</option>
+    <option value="medium">Peanut Free</option>
+    <option value="large">Alcohol Free</option>
+  </select>
+
+  <select class="subFilter">
+    <option value="calories">Time</option>
+    <option value="small">0-15 minutes</option>
+    <option value="medium">15-30 minutes</option>
+    <option value="large">1 hour</option>
+    <option value="large">2 hours and above</option>
+  </select>
 </div>
 
 <div class="container">
