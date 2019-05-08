@@ -1,78 +1,140 @@
 import { Component, OnInit } from '@angular/core';
-import {Api} from '../services/api.service'
+import { Api } from '../services/api.service'
 
-<<<<<<< Updated upstream
-=======
-  interface RecipeInfo {
-    label: string;
-    url: string;
-    image: string;
-    ingredients: [];
-    totalTime: number;
-    calories: number;
-    healthLabels: string;
-    favorite: boolean;
+interface RecipeInfo {
+  label: string;
+  url: string;
+  image: string;
+  ingredients: [];
+  totalTime: number;
+  calories: number;
+  healthLabels: string;
+  bookmarked: boolean;
 
-  }
+}
 
-  interface Recipe {
-    count:number;
-    recipe: RecipeInfo [];
+interface Recipe {
+  count: number;
+  recipe: RecipeInfo[];
+  bookmarked: boolean;
+}
 
-  }
+interface ApiData {
+  results: Recipe;
+  hits: Recipe[];
+}
 
-  interface ApiData {
-    results: Recipe;
-    hits: Recipe[];
-  }
+interface Favorite {
+  label: string;
+  url: string;
+  image: string;
+  ingredients: [];
+  totalTime: number;
+  calories: number;
+  healthLabels: string;
+  bookmarked: boolean;
+}
 
->>>>>>> Stashed changes
+// interface Favorite {
+//   bookmarked: boolean;
+// }
+
 @Component({
   selector: 'recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
   providers: [Api]
 })
+
 export class RecipeListComponent implements OnInit {
-
-<<<<<<< Updated upstream
-=======
   recipes: Recipe[];
-  name = [];
-  url: string;
-  ingredients;
-  image;
-  favorite: boolean = false;
-
->>>>>>> Stashed changes
-
-  ngOnInit
-
-  constructor (private api: Api) {}
-
-  getAllRecipes = () => {
-<<<<<<< Updated upstream
-    this.api.getRecipe().subscribe(data => console.log(data))
-=======
-    this.api.getRecipe().subscribe((data: ApiData) => {
-      
-      this.recipes = data.hits;
-
-
-      for ( let recipe of this.recipes){
-      this.name += recipe.recipe.label;
-   
-      }
-
-
-      console.log(this.recipes);
-    });
->>>>>>> Stashed changes
-  }
+  searchInput: String;
+  bookmarked: boolean;
+  favorites: Recipe[];
   
-  addFavorite = (item) => {
-    item.favorite = true;
-    
+
+  constructor(private api: Api) { }
+  
+
+  // favorites: Favorite [] = [
+  //   { label: '',
+  //     url: '',
+  //     image:'',
+  //     ingredients: [],
+  //     totalTime: 0,
+  //     calories: 0,
+  //     healthLabels: '',
+  //     bookmarked: true}
+  // ]
+
+  // favorites: Favorite[] = []
+
+  ngOnInit() {
+    this.api.getRecipe(null).subscribe((data: ApiData) => {
+      this.recipes = data.hits.slice(0, 20);
+    }); 
   }
+
+  filterRecipes = () => {
+    this.api.getRecipe(this.searchInput).subscribe((data: ApiData) => {
+      this.recipes = data.hits;
+    });
+  }
+
+  addFavorite = (recipe) => {
+    this.recipes[recipe].bookmarked = true;
+    const favorites = [];
+    this.favorites.push(recipe);
+  };
+
+  //  addFavorite = (recipe) => {
+  //   this.recipes[recipe].bookmarked = true;
+  //       const newFavorite = {
+  //       label: '',
+  //       url: '',
+  //       image:'',
+  //       ingredients: [],
+  //       totalTime: 0,
+  //       calories: 0,
+  //       healthLabels: '',
+  //       bookmarked: false,
+  //   };
+  //   this.favorites.push(newFavorite);
+  // };
+
+  // addFavorite = (index) => {
+  //   this.recipe[index].bookmarked = true;
+  // };
+  // addFavorite = (recipe) => {
+  //   this.recipe[recipe].bookmarked = true;
+  // };
+
+  // addFavorite = (index) => {
+  //   const newFavorite = {
+  //   label: '',
+  //   url: '',
+  //   image:'',
+  //   ingredients: [],
+  //   totalTime: 0,
+  //   calories: 0,
+  //   healthLabels: '',
+  //   bookmarked: false,
+  //   };
+  //   this.favorites.push(newFavorite);
+  // };
+
+  // addFavorite = (index) => {
+  //   const newFavorite = {
+  //   label: '',
+  //   url: '',
+  //   image:'',
+  //   ingredients: [],
+  //   totalTime: 0,
+  //   calories: 0,
+  //   healthLabels: '',
+  //   bookmarked: false,
+  //   };
+  //   this.favorites.push(newFavorite);
+  // };
 
 }

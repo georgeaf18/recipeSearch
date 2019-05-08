@@ -4,12 +4,17 @@ import {HttpClient} from '@angular/common/http'
 @Injectable()
 
 export class Api {
-    recipeUrl = 'https://api.edamam.com/search?q=chicken&app_id=00a41518&app_key=482baab8eed3d4133ec335372e8171b8&from=0&to=3&calories=591-722&health=alcohol-free'
+    appId: string = '00a41518';
+    appKey: string = '482baab8eed3d4133ec335372e8171b8';
+    recipeUrl: string;
+    fromNumber: number = 0;
+    toNumber: number = 20;
+
 
     constructor( private http: HttpClient) {}
-
-        getRecipe = () => {
-            return this.http.get(this.recipeUrl);
-        }
+    
+    getRecipe = (query) => {
+        return this.http.get(this.recipeUrl = `https://api.edamam.com/search?q=${query || ""}&app_id=${this.appId}&app_key=${this.appKey}&from=${this.fromNumber}&to=${this.toNumber}&health=alcohol-free`)
+    }
     
 }
