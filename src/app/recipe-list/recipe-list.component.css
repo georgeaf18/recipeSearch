@@ -33,8 +33,8 @@ h1 {
 .recipe_div {
     border: solid black .5px;
     width: 160px;
-    padding: 5px;
-    margin: 5px;
+    padding: 20px;
+    margin: 40px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;

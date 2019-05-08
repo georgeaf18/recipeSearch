@@ -51,6 +51,7 @@ export class RecipeListComponent implements OnInit {
   searchInput: String;
   bookmarked: boolean;
   favorites: Recipe[];
+  numberIngr: string = '2+'
 
   health: string = 'alcohol-free';
   caloriesRange: string = '1+';
@@ -78,7 +79,7 @@ export class RecipeListComponent implements OnInit {
   }
 
   filterRecipes = () => {
-    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.caloriesRange) ).subscribe((data: ApiData) => {
+    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr) ).subscribe((data: ApiData) => {
       this.recipes = data.hits;
     });
 
