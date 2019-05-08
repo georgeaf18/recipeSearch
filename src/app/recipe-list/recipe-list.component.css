@@ -45,11 +45,34 @@ h1 {
 
 .recipe_img {
     width: 100%;
+    max-width: 160px;
     margin: auto;
+
 }
 
 .recipe_heading {
     text-align: center;
     font-size: 15px;
     font-weight: bold;
+}
+
+.fa-heart{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    font-size: 15px;
+    color: gray;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    /* color: hsl(0, 73%, 42%); */
+
+}
+
+.image-container {
+    position: relative;
+}
+
+.red {
+    color: red;
 }
