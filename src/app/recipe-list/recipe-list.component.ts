@@ -24,20 +24,18 @@ interface ApiData {
   hits: Recipe[];
 }
 
-interface Favorite {
-  label: string;
-  url: string;
-  image: string;
-  ingredients: [];
-  totalTime: number;
-  calories: number;
-  healthLabels: string;
-  bookmarked: boolean;
-}
-
 // interface Favorite {
+//   label: string;
+//   url: string;
+//   image: string;
+//   ingredients: [];
+//   totalTime: number;
+//   calories: number;
+//   healthLabels: string;
 //   bookmarked: boolean;
 // }
+
+
 
 @Component({
   selector: 'recipe-list',
@@ -84,7 +82,7 @@ export class RecipeListComponent implements OnInit {
   addFavorite = (recipe) => {
     this.recipes[recipe].bookmarked = true;
     const favorites = [];
-    this.favorites.push(recipe);
+    this.favorites.push(this.recipes);
   };
 
   //  addFavorite = (recipe) => {
@@ -102,39 +100,6 @@ export class RecipeListComponent implements OnInit {
   //   this.favorites.push(newFavorite);
   // };
 
-  // addFavorite = (index) => {
-  //   this.recipe[index].bookmarked = true;
-  // };
-  // addFavorite = (recipe) => {
-  //   this.recipe[recipe].bookmarked = true;
-  // };
 
-  // addFavorite = (index) => {
-  //   const newFavorite = {
-  //   label: '',
-  //   url: '',
-  //   image:'',
-  //   ingredients: [],
-  //   totalTime: 0,
-  //   calories: 0,
-  //   healthLabels: '',
-  //   bookmarked: false,
-  //   };
-  //   this.favorites.push(newFavorite);
-  // };
-
-  // addFavorite = (index) => {
-  //   const newFavorite = {
-  //   label: '',
-  //   url: '',
-  //   image:'',
-  //   ingredients: [],
-  //   totalTime: 0,
-  //   calories: 0,
-  //   healthLabels: '',
-  //   bookmarked: false,
-  //   };
-  //   this.favorites.push(newFavorite);
-  // };
 
 }
