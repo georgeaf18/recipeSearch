@@ -3,33 +3,28 @@
 
 <div class="search">
   <input [(ngModel)]="searchInput" class="searchInput" type="text" placeholder="Search for a recipe"/>
-  <button (click) = 'filterRecipes()' type="button" class="btn btn-primary">Primary</button>
+  <button (click) = 'filterRecipes()' type="button" class="btn btn-primary">Search</button>
 
   <br />
   
+  <label for="numberIngr">Number of ingredients preferred</label>
+  <select id="numberIngr" [(ngModel)]= 'numberIngr' class="subFilter">
+    <option value="2+">Any</option>
+    <option value="2-5">2-5 ingredients</option>
+    <option value="6-10">6-10 ingredients</option>
+    <option value="11+">11 or more</option>
 
-  <select [(ngModel)] = 'caloriesRange' class="subFilter">
-      <option value="1+">Any</option>
-      <option value="0-499"> Less than 500 calories</option>
-    <option value="500-999">500-999 calories</option>
-    <option value="1-1.4">800-1,499 calories</option>
-    <option value="1.5">1,500+ calories</option>
   </select>
 
-  <select  [(ngModel)]= 'health' class="subFilter">
-    <option value="alcohol-free">Alcohol-free</option>
+  <label for="health">Health</label>
+  <select id="health" [(ngModel)]= 'health' class="subFilter">
+    <option value="alcohol-free">Any</option>
     <option value="vegan">Vegan</option>
     <option value="peanut-free">Peanut-free</option>
     <option value="vegetarian">Vegetarian</option>
 
   </select>
 
-  <select class="subFilter">
-    <option value="time" disabled>Time</option>
-    <option value="0-15">0-15 minutes</option>
-    <option value="15-30">15-30 minutes</option>
-    <option value="60+">60+ minutes</option>
-  </select>
 </div>
 
 <div class="favorite-container">
@@ -43,19 +38,17 @@
 <div class="container">
   <div class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
   <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
+  <p>{{recipe.recipe.calories}}</p>
 
 
 
-  <div>
+  <!-- <div>
     <a href={{recipe.recipe.url}}>
       <img class='recipe_img' src={{recipe.recipe.image}} alt="">
     </a>
-  </div>
-  <p>&nbsp;</p>
-  <button>More Info</button>
-  <!-- <p>Health labels: {{ recipe.recipe.healthLabels }}</p> -->
-  <!-- <p>Time to Prepare: {{ recipe.recipe.totalTime }} minutes</p>
-  <p>Calories: {{ recipe.recipe.calories | number: '1.0-0'}}</p> -->
+  </div> -->
+
+  
 
 
   <!-- <ul>
@@ -68,13 +61,9 @@
   <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
   <!-- <i class="fa fa-heart"></i> -->
   </div>  
-  <!-- <p>Health labels: {{ recipe.recipe.healthLabels }}</p> -->
 
-  
-  <p>Time to Prepare: {{ recipe.recipe.totalTime }} minutes</p>
-  <p>Calories: {{ recipe.recipe.calories | number: '1.0-0'}}</p>
+  <button>More Info</button>
 
-  <!-- <button class= "favorite">Favorite</button> -->
 
 </div>
 
