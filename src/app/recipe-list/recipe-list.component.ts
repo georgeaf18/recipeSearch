@@ -33,18 +33,21 @@ interface ApiData {
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
   searchInput: String;
+  health: string = 'alcohol-free';
+  caloriesRange: string = '1+';
+  // health: string = 'alcohol-free';
 
   constructor(private api: Api) { }
 
   ngOnInit() {
-    this.api.getRecipe(null).subscribe((data: ApiData) => {
-      this.recipes = data.hits.slice(0, 20);
-    }); 
+    
   }
 
   filterRecipes = () => {
-    this.api.getRecipe(this.searchInput).subscribe((data: ApiData) => {
+    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.caloriesRange) ).subscribe((data: ApiData) => {
       this.recipes = data.hits;
     });
+
+    console.log(this.health);
   }
 }
