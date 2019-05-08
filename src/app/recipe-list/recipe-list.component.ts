@@ -51,7 +51,11 @@ export class RecipeListComponent implements OnInit {
   searchInput: String;
   bookmarked: boolean;
   favorites: Recipe[];
-  
+
+  health: string = 'alcohol-free';
+  caloriesRange: string = '1+';
+  // health: string = 'alcohol-free';
+
 
   constructor(private api: Api) { }
   
@@ -70,15 +74,15 @@ export class RecipeListComponent implements OnInit {
   // favorites: Favorite[] = []
 
   ngOnInit() {
-    this.api.getRecipe(null).subscribe((data: ApiData) => {
-      this.recipes = data.hits.slice(0, 20);
-    }); 
+    
   }
 
   filterRecipes = () => {
-    this.api.getRecipe(this.searchInput).subscribe((data: ApiData) => {
+    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.caloriesRange) ).subscribe((data: ApiData) => {
       this.recipes = data.hits;
     });
+
+    console.log(this.health);
   }
 
   addFavorite = (recipe) => {
