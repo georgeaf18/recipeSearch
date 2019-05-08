@@ -1,29 +1,29 @@
 <h1>Nom Nom Recipes</h1>
 
+
 <div class="search">
   <input [(ngModel)]="searchInput" (change)="filterRecipes()" class="searchInput" type="text" placeholder="Search for a recipe"/>
   <br />
   
   <select class="subFilter">
-    <option value="calories">Calories</option>
-    <option value="small">500-700</option>
-    <option value="medium">701-1,000</option>
-    <option value="large">1,001-above</option>
+    <option value="calories" disabled>Calories</option>
+    <option value="500-700">500-700</option>
+    <option value="701-1000">701-1,000</option>
+    <option value="1000+">1,001+</option>
   </select>
 
   <select class="subFilter">
-    <option value="calories">Health Type</option>
-    <option value="small">Light on Sugar</option>
-    <option value="medium">Peanut Free</option>
-    <option value="large">Alcohol Free</option>
+    <option value="health-type" disabled>Health Type</option>
+    <option value="light-sugar">Light on Sugar</option>
+    <option value="peanut-free">Peanut Free</option>
+    <option value="alcohol-free">Alcohol Free</option>
   </select>
 
   <select class="subFilter">
-    <option value="calories">Time</option>
-    <option value="small">0-15 minutes</option>
-    <option value="medium">15-30 minutes</option>
-    <option value="large">1 hour</option>
-    <option value="large">2 hours and above</option>
+    <option value="time" disabled>Time</option>
+    <option value="0-15">0-15 minutes</option>
+    <option value="15-30">15-30 minutes</option>
+    <option value="60+">60+ minutes</option>
   </select>
 </div>
 
@@ -31,16 +31,17 @@
   <div class="recipe_div"  *ngFor='let recipe of recipes'>
   
   <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
-  <!-- <ul>
-    <li *ngFor = 'let ingredient of recipe.recipe.ingredientLines'>{{ingredient}}</li>
 
-  </ul> -->
-
-  <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
-  
-  <p>Health labels: {{ recipe.recipe.healthLabels }}</p>
-  <p>Time to Prepare: {{ recipe.recipe.totalTime }} minutes</p>
-  <p>Calories: {{ recipe.recipe.calories | number: '1.0-0'}}</p>
+  <div>
+    <a href={{recipe.recipe.url}}>
+      <img class='recipe_img' src={{recipe.recipe.image}} alt="">
+    </a>
+  </div>
+  <p>&nbsp;</p>
+  <button>More Info</button>
+  <!-- <p>Health labels: {{ recipe.recipe.healthLabels }}</p> -->
+  <!-- <p>Time to Prepare: {{ recipe.recipe.totalTime }} minutes</p>
+  <p>Calories: {{ recipe.recipe.calories | number: '1.0-0'}}</p> -->
 </div>
 
 </div>
