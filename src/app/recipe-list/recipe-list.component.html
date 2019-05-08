@@ -1,21 +1,24 @@
 <h1>Nom Nom Recipes</h1>
 
 <div class="search">
-  <input [(ngModel)]="searchInput" (change)="filterRecipes()" class="searchInput" type="text" placeholder="Search for a recipe"/>
+  <input [(ngModel)]="searchInput" class="searchInput" type="text" placeholder="Search for a recipe"/>
+  <button (click) = 'filterRecipes()' type="button" class="btn btn-primary">Primary</button>
+
   <br />
   
-  <select class="subFilter">
-    <option value="calories">Calories</option>
-    <option value="small">500-700</option>
-    <option value="medium">701-1,000</option>
-    <option value="large">1,001-above</option>
+  <select [(ngModel)] = 'caloriesRange' class="subFilter">
+      <option value="1+">Any</option>
+      <option value="0-499"> Less than 500 calories</option>
+    <option value="500-999">500-999 calories</option>
+    <option value="1-1.4">800-1,499 calories</option>
+    <option value="1.5">1,500+ calories</option>
   </select>
 
-  <select class="subFilter">
-    <option value="calories">Health Type</option>
-    <option value="small">Light on Sugar</option>
-    <option value="medium">Peanut Free</option>
-    <option value="large">Alcohol Free</option>
+  <select  [(ngModel)]= 'health' class="subFilter">
+    <option value="alcohol-free">Alcohol-free</option>
+    <option value="vegan">Vegan</option>
+    <option value="peanut-free">Peanut-free</option>
+    <option value="vegetarian">Vegetarian</option>
   </select>
 
   <select class="subFilter">
@@ -43,10 +46,14 @@
   </ul> -->
   <div class="image-container">
   <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
+<<<<<<< HEAD
   <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
   <!-- <i class="fa fa-heart"></i> -->
   </div>  
   <!-- <p>Health labels: {{ recipe.recipe.healthLabels }}</p> -->
+=======
+  
+>>>>>>> 37e1d99de47c37667852134bb0be1635924d8ab8
   <p>Time to Prepare: {{ recipe.recipe.totalTime }} minutes</p>
   <p>Calories: {{ recipe.recipe.calories | number: '1.0-0'}}</p>
   <!-- <button class= "favorite">Favorite</button> -->

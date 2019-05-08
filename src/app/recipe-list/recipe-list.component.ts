@@ -47,9 +47,15 @@ interface ApiData {
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
   searchInput: String;
+<<<<<<< HEAD
   bookmarked: boolean;
   favorites: Recipe[];
   
+=======
+  health: string = 'alcohol-free';
+  caloriesRange: string = '1+';
+  // health: string = 'alcohol-free';
+>>>>>>> 37e1d99de47c37667852134bb0be1635924d8ab8
 
   constructor(private api: Api) { }
   
@@ -68,15 +74,15 @@ export class RecipeListComponent implements OnInit {
   // favorites: Favorite[] = []
 
   ngOnInit() {
-    this.api.getRecipe(null).subscribe((data: ApiData) => {
-      this.recipes = data.hits.slice(0, 20);
-    }); 
+    
   }
 
   filterRecipes = () => {
-    this.api.getRecipe(this.searchInput).subscribe((data: ApiData) => {
+    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.caloriesRange) ).subscribe((data: ApiData) => {
       this.recipes = data.hits;
     });
+
+    console.log(this.health);
   }
 
   addFavorite = (recipe) => {
