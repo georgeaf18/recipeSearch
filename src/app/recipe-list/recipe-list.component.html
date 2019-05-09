@@ -7,7 +7,7 @@
 
   <br />
   
-  <label for="numberIngr">Number of ingredients preferred</label>
+  <label for="numberIngr">Number of ingredients</label>
   <select id="numberIngr" [(ngModel)]= 'numberIngr' class="subFilter">
     <option value="2+">Any</option>
     <option value="2-5">2-5 ingredients</option>
@@ -36,9 +36,17 @@
 </div>
 
 <div class="container">
+
+  <div class='pag_btns'>
+      <i (click)= 'changePag(false)' class="fas fa-hand-point-left"></i>
+      <i (click)= 'changePag(true)' class="fas fa-hand-point-right"></i>
+  </div>
+
   <div class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
   <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
-  <p>{{recipe.recipe.calories}}</p>
+  
+
+  
 
 
 
@@ -62,12 +70,33 @@
   <!-- <i class="fa fa-heart"></i> -->
   </div>  
 
-  <button>More Info</button>
+
+  <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button>
+  <button (click) = 'console(i)'>console</button>
+  
+
+
+  
+</div>
+
+<div *ngIf="this.modalRecipe" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <h1>{{this.modalRecipe.label}}</h1>
+        
+        <h3>Ingredients</h3>
+        <ul >
+           <li *ngFor = 'let modalIngredient of this.modalRecipe.ingredientLines; let i=index'>{{modalIngredient}}</li>
+        </ul>
+        
+        <p>Kcal: {{ this.modalCalories }}</p>
+          
+
+        
+      </div>
+    </div>
+  </div>
 
 
 </div>
-
-
-</div>
-
 

@@ -52,9 +52,13 @@ export class RecipeListComponent implements OnInit {
   bookmarked: boolean;
   favorites: Recipe[];
   numberIngr: string = '2+'
+  pagFrom: number = 0;
+  pagTo: number = 20;
+  modalIndex: number;
+  modalRecipe: RecipeInfo[];
+  modalCalories: number;
 
   health: string = 'alcohol-free';
-  caloriesRange: string = '1+';
   // health: string = 'alcohol-free';
 
 
@@ -78,8 +82,34 @@ export class RecipeListComponent implements OnInit {
     
   }
 
+  console = (index) => {
+    console.log(this.recipes[index])
+  }
+
+  show = (i) => {
+    this.modalRecipe = this.recipes[i].recipe;
+    this.modalCalories = Math.round(this.modalRecipe.calories);
+  }
+
+  changePag = (where) => {
+    if (where === true){
+      this.pagFrom += 20;
+      this.pagTo += 20;
+      this.filterRecipes();
+    } else if (where === false){
+      if(this.pagFrom > 0 ){
+      this.pagFrom -= 20;
+      this.pagTo -= 20;
+      this.filterRecipes();
+      } 
+
+
+    }
+  }
+
   filterRecipes = () => {
-    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr) ).subscribe((data: ApiData) => {
+    
+    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr), this.pagFrom, this.pagTo ).subscribe((data: ApiData) => {
       this.recipes = data.hits;
     });
 
