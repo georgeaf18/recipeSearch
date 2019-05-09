@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Api } from '../services/api.service'
+// import { EventEmitter } from 'events';
 
 interface RecipeInfo {
   label: string;
@@ -24,18 +25,6 @@ interface ApiData {
   hits: Recipe[];
 }
 
-// interface Favorite {
-//   label: string;
-//   url: string;
-//   image: string;
-//   ingredients: [];
-//   totalTime: number;
-//   calories: number;
-//   healthLabels: string;
-//   bookmarked: boolean;
-// }
-
-
 
 @Component({
   selector: 'recipe-list',
@@ -45,33 +34,22 @@ interface ApiData {
 })
 
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[];
+  recipes: Recipe[]; 
   searchInput: String;
-<<<<<<< HEAD
   bookmarked: boolean;
-  favorites: Recipe[];
-  
-=======
   health: string = 'alcohol-free';
   caloriesRange: string = '1+';
-  // health: string = 'alcohol-free';
->>>>>>> 37e1d99de47c37667852134bb0be1635924d8ab8
+  // clicked: boolean;
+  favorites: Recipe[];
+
+ 
+  // @Input() favorites: Recipe[];
+  // @Output() eventClicked = new EventEmitter<Event>();
+  // @Output() eventClicked = new EventEmitter<boolean>();
+ 
 
   constructor(private api: Api) { }
   
-
-  // favorites: Favorite [] = [
-  //   { label: '',
-  //     url: '',
-  //     image:'',
-  //     ingredients: [],
-  //     totalTime: 0,
-  //     calories: 0,
-  //     healthLabels: '',
-  //     bookmarked: true}
-  // ]
-
-  // favorites: Favorite[] = []
 
   ngOnInit() {
     
@@ -85,27 +63,42 @@ export class RecipeListComponent implements OnInit {
     console.log(this.health);
   }
 
-  addFavorite = (recipe) => {
-    this.recipes[recipe].bookmarked = true;
-    const favorites = [];
-    this.favorites.push(this.recipes);
-  };
+  // onClick(event:Event): void {
+  //   this.eventClicked.emit(event);
+  // }
 
-  //  addFavorite = (recipe) => {
-  //   this.recipes[recipe].bookmarked = true;
-  //       const newFavorite = {
-  //       label: '',
-  //       url: '',
-  //       image:'',
-  //       ingredients: [],
-  //       totalTime: 0,
-  //       calories: 0,
-  //       healthLabels: '',
-  //       bookmarked: false,
+  // addFavorite = () => {
+  //   this.eventClicked.emit(true);
+  // }
+
+ 
+  //  addFavorite = (i) => {
+  //   this.recipes[i].bookmarked = true;
+  //    this.favorites.push(this.recipes[i]);
   //   };
-  //   this.favorites.push(newFavorite);
+
+    // console.log(this.favorites);
+
+  
   // };
 
+  // favorites: Recipe[] = [];
+  //  addFavorite = (i) => {
+  //   this.recipes[i].bookmarked = true;
+  //    this.favorites.push(this.recipes[i]);
+  //   });
+      
+  // console.log(this.favorites);
+
+  // };
+
+
+  //  favorites: Recipe[] = [];
+  //  addFavorite = (i) => {
+  //    this.clicked.emit( this.recipes[i].bookmarked = true);
+  //   this.favorites.push(this.recipes[i]);
+  //   };
+  //   console.log(this.favorites[i]);
 
 
 }

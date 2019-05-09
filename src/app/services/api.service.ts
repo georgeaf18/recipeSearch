@@ -11,11 +11,9 @@ export class Api {
     toNumber: number = 20;
     
 
-
     constructor( private http: HttpClient) {}
     
     getRecipe = (query, healthValue, caloriesRange) => {
         return this.http.get(this.recipeUrl = `https://api.edamam.com/search?q=${query || ""}&app_id=${this.appId}&app_key=${this.appKey}&from=${this.fromNumber}&to=${this.toNumber}&health=${healthValue}&calories=${caloriesRange}`)
     }
-    
 }

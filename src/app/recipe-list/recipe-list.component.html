@@ -1,11 +1,17 @@
 <h1>Nom Nom Recipes</h1>
-
+<!-- <a routerLink: '/favorites'><button>Heart</button> </a> -->
+<a 
+routerLink="/favorites" 
+routerLinkActive="active"
+[routerLinkActiveOptions]="{ exact: true }">
+Heart</a>
 <div class="search">
   <input [(ngModel)]="searchInput" class="searchInput" type="text" placeholder="Search for a recipe"/>
   <button (click) = 'filterRecipes()' type="button" class="btn btn-primary">Primary</button>
 
-  <br />
+  <!-- <br /> -->
   
+
   <select [(ngModel)] = 'caloriesRange' class="subFilter">
       <option value="1+">Any</option>
       <option value="0-499"> Less than 500 calories</option>
@@ -19,44 +25,54 @@
     <option value="vegan">Vegan</option>
     <option value="peanut-free">Peanut-free</option>
     <option value="vegetarian">Vegetarian</option>
+
   </select>
 
   <select class="subFilter">
-    <option value="calories">Time</option>
-    <option value="small">0-15 minutes</option>
-    <option value="medium">15-30 minutes</option>
-    <option value="large">1 hour</option>
-    <option value="large">2 hours and above</option>
+    <option value="time" disabled>Time</option>
+    <option value="0-15">0-15 minutes</option>
+    <option value="15-30">15-30 minutes</option>
+    <option value="60+">60+ minutes</option>
   </select>
 </div>
 
-<div class="favorite-container">
+<!-- *favorites component below* -->
+<!-- <div class="favorite-container">
 <div class= "favorite" *ngFor='let favorite of favorites'>
     <p>Favorite</p>
-    <h1 class='recipe_heading'>{{favorite.favorite.label}}</h1>
-    <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
-  </div>
-</div>
 
-<div class="container">
+    <h1 class='favorite_recipe_heading'>{{favorite.recipe.label}}</h1>
+
+    <div class="favorite_image-container"> 
+    <a href={{favorite.recipe.url}}><img class='favorite_recipe_img' src={{favorite.recipe.image}} alt=""></a>
+  
+    <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
+   
+   </div>
+    <button>More Info</button>
+  </div>
+</div> -->
+
+
+
+
+ <div class="container">
   <div class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
   <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
-  <!-- <ul>
-    <li *ngFor = 'let ingredient of recipe.recipe.ingredientLines'>{{ingredient}}</li>
-  </ul> -->
+
   <div class="image-container">
+
   <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
-<<<<<<< HEAD
-  <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
-  <!-- <i class="fa fa-heart"></i> -->
+
+  <!-- <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i> -->
+  <i class="fa fa-heart" (click)= "onClick(event)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
+
   </div>  
-  <!-- <p>Health labels: {{ recipe.recipe.healthLabels }}</p> -->
-=======
-  
->>>>>>> 37e1d99de47c37667852134bb0be1635924d8ab8
-  <p>Time to Prepare: {{ recipe.recipe.totalTime }} minutes</p>
-  <p>Calories: {{ recipe.recipe.calories | number: '1.0-0'}}</p>
-  <!-- <button class= "favorite">Favorite</button> -->
+ 
+  <button>More Info</button>
+
+
+
 </div>
 
 
