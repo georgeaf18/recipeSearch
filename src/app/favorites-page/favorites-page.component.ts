@@ -22,3 +22,17 @@ favorites: any[];
     this.api.updateRecipes(this.favorites);
   };
 }
+
+  // addFavorite = (i) => {
+  //   this.recipes[i].bookmarked = true;
+  //    this.favorites.push(this.recipes[i]);
+  //   };
+  
+    
+    // unFavorite = (index) => {
+    //   this.favorites[index].bookmarked = false;
+    //   this.favorites.splice(index, 1);
+    // }
+
+
+

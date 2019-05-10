@@ -1,5 +1,40 @@
+h1 {
+    text-align: center;
+}
 .fa-home {
     font-size: 50px;
     color: hsl(0, 73%, 42%);
     margin: 10px;
+}
+
+.favorites-container {
+    display: flex;
+    flex-direction: row;  
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.favorites-recipe_div {
+    border: solid black .5px;
+    width: 160px;
+    padding: 20px;
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    font-size: 10px;
+    flex-wrap: wrap;
+}
+
+.favorites-recipe_img {
+    width: 100%;
+    max-width: 160px;
+    margin: auto;
+
+}
+
+.favorites-recipe_heading {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
 }
