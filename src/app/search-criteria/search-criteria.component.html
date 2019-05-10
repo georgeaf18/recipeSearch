@@ -1,0 +1,25 @@
+<div class="search">
+    <input [(ngModel)]="searchInput" class="searchInput" type="text" placeholder="Search for a recipe"/>
+    <button (click) = 'filterRecipes()' type="button" class="btn btn-primary">Search</button>
+  
+    <br />
+    
+    <label for="numberIngr">Number of ingredients</label>
+    <select id="numberIngr" [(ngModel)]= 'numberIngr' class="subFilter">
+      <option value="2+">Any</option>
+      <option value="2-5">2-5 ingredients</option>
+      <option value="6-10">6-10 ingredients</option>
+      <option value="11+">11 or more</option>
+  
+    </select>
+  
+    <label for="health">Health</label>
+    <select id="health" [(ngModel)]= 'health' class="subFilter">
+      <option value="alcohol-free">Any</option>
+      <option value="vegan">Vegan</option>
+      <option value="peanut-free">Peanut-free</option>
+      <option value="vegetarian">Vegetarian</option>
+  
+    </select>
+  
+  </div>
