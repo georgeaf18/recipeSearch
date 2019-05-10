@@ -11,24 +11,7 @@
 h1 {
     text-align: center;
 }
-.search {
-    text-align: center;
-}
 
-.search_button {
-    width: 200px;
-    margin: 10px;
-}
-
-.subFilter {
-    margin: 10px 10px 10px 0px;
-    width: 100px;
-    font-size: 12px;
-}
-
-.seachInput {
-    margin: 10px;
-}
 
 /******************************** recipes styles ********************************/
 
