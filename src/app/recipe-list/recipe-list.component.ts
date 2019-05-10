@@ -28,7 +28,6 @@ interface ApiData {
   selector: 'recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
-  providers: [Api]
 })
 
 export class RecipeListComponent implements OnInit {
@@ -48,7 +47,7 @@ export class RecipeListComponent implements OnInit {
 
 
   ngOnInit() {
-    
+    this.api.recipes.subscribe(data => this.recipes = data);
   }
 
   console = (index) => {
@@ -76,30 +75,23 @@ export class RecipeListComponent implements OnInit {
   }
 
   filterRecipes = () => {
-    
+
     this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr), this.pagFrom, this.pagTo ).subscribe((data: ApiData) => {
-      this.recipes = data.hits;
+      this.api.updateRecipes(data.hits);
     });
-
-    console.log(this.health);
+    
+    
   }
 
 
- favorites: Recipe[] = [];
- addFavorite = (i) => {
-  this.recipes[i].bookmarked = true;
-   this.favorites.push(this.recipes[i]);
+
+
+
+
+  addFavorite = (recipe) => {
+    this.recipes[recipe].bookmarked = !this.recipes[recipe].bookmarked;
+    this.api.updateRecipes(this.recipes);
   };
-
-  
-  unFavorite = (index) => {
-    this.recipes[index].bookmarked = false;
-    this.favorites.splice(index, 1);
-  }
-
-
 
 
 }
-
-

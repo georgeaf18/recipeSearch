@@ -1,6 +1,7 @@
-import { Component, OnInit, Input,  } from '@angular/core';
-import { Api } from '../services/api.service'
-import { RecipeListComponent } from '../recipe-list/recipe-list.component';
+
+import { Component, OnInit } from '@angular/core';
+import { Api } from '../services/api.service';
+
 
 @Component({
   selector: 'favorites-page',
@@ -10,17 +11,15 @@ import { RecipeListComponent } from '../recipe-list/recipe-list.component';
 })
 export class FavoritesPageComponent implements OnInit {
  
-  // @Input() event: Event;
-  // @Input() favorites: Recipe[];
 
+favorites: any[];
 
   constructor(private api: Api) { }
-  
+
 
   ngOnInit() {
+    this.api.recipes.subscribe(data => this.favorites = data.filter(recipe => recipe.bookmarked));
   }
-
-
 
 
 }
