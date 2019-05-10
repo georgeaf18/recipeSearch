@@ -4,20 +4,7 @@
   routerLinkActive="active"
   [routerLinkActiveOptions]="{ exact: true }"></i>
 
-
-
-
-
 <app-search-criteria></app-search-criteria>
-
-
-<div class="favorite-container">
-<div class= "favorite" *ngFor='let favorite of favorites'>
-    <p>Favorite</p>
-    <h1 class='recipe_heading'>{{favorite.favorite.label}}</h1>
-    <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
-  </div>
-</div>
 
 <div class="container">
 
@@ -27,39 +14,18 @@
   </div>
 
   <div class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
-  <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
+    <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
   
+    <div class="image-container">
 
-  
+    <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
 
-
-
-  <!-- <div>
-    <a href={{recipe.recipe.url}}>
-      <img class='recipe_img' src={{recipe.recipe.image}} alt="">
-    </a>
-  </div> -->
-
-  
-
-
-  <!-- <ul>
-    <li *ngFor = 'let ingredient of recipe.recipe.ingredientLines'>{{ingredient}}</li>
-  </ul> -->
-  <div class="image-container">
-
-  <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
-
-  <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
-  <!-- <i class="fa fa-heart"></i> -->
+    <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
+ 
   </div>  
-
 
   <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button>
   <button (click) = 'console(i)'>console</button>
-  
-
-
   
 </div>
 
@@ -75,7 +41,6 @@
         
         <p>Kcal: {{ this.modalCalories }}</p>
           
-
         
       </div>
     </div>
