@@ -17,7 +17,10 @@ favorites: any[];
   }
 
   
-
+  addFavorite = (recipe) => {
+    this.favorites[recipe].bookmarked = !this.favorites[recipe].bookmarked;
+    this.api.updateRecipes(this.favorites);
+  };
 }
 
   // addFavorite = (i) => {
