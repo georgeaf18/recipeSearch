@@ -4,27 +4,12 @@
     margin: 10px;
 }
 
+.red {
+    color: hsl(0, 73%, 42%);
+ }
 
-.subFilter {
-    margin: 10px 10px 10px 0px;
-    width: 100px;
-    font-size: 12px;
-    border: none;
-    background-color: rgb(219, 218, 218);
-}
-
-.link {
-    text-decoration: none;
-}
-
-.modalButton {
-   background: #007bff;
-   color: #fff;
-   border-radius: 5px;
-   border: none;
-   width: 30%;
-   margin: 0 auto;
-   padding: 5px;
+h1 {
+    text-align: center;
 }
 
 
@@ -33,8 +18,7 @@
 .pag_btns {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    justify-content: space-around;
 }
 
 .pag_btns i {
@@ -55,7 +39,7 @@
     border: solid black .5px;
     width: 160px;
     padding: 20px;
-    margin: 5px;
+    margin: 40px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -77,10 +61,6 @@
     font-weight: bold;
 }
 
-.btn-primary {
-    margin: 10px;
-}
-
 .fa-heart{
     position: absolute;
     left: 5px;
@@ -96,12 +76,4 @@
 
 .image-container {
     position: relative;
-}
-
-.red {
-    color: red;
-}
-
-.modal-content {
-    padding: 20px;
 }
