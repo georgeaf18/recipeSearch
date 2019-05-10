@@ -18,5 +18,6 @@ export class Api {
         return this.http.get(this.recipeUrl = `https://api.edamam.com/search?q=${query || ""}&app_id=${this.appId}&app_key=${this.appKey}&from=${pagFrom}&to=${pagTo}&health=${healthValue}&ingr=${numberIngr}`)
     }
 
+
     updateRecipes = newList => this._recipes.next(newList);
 }

@@ -1,0 +1,9 @@
+h1 {
+    text-align: center;
+}
+
+.fa-home {
+    font-size: 50px;
+    color: hsl(0, 73%, 42%);
+    margin: 10px;
+}

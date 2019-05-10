@@ -24,21 +24,6 @@ interface ApiData {
   hits: Recipe[];
 }
 
-interface Favorite {
-  label: string;
-  url: string;
-  image: string;
-  ingredients: [];
-  totalTime: number;
-  calories: number;
-  healthLabels: string;
-  bookmarked: boolean;
-}
-
-// interface Favorite {
-//   bookmarked: boolean;
-// }
-
 @Component({
   selector: 'recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -49,33 +34,17 @@ export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
   searchInput: String;
   bookmarked: boolean;
-  favorites: Recipe[];
   numberIngr: string = '2+'
   pagFrom: number = 0;
   pagTo: number = 20;
   modalIndex: number;
   modalRecipe: RecipeInfo[];
   modalCalories: number;
-
   health: string = 'alcohol-free';
-  // health: string = 'alcohol-free';
 
 
   constructor(private api: Api) { }
-  
 
-  // favorites: Favorite [] = [
-  //   { label: '',
-  //     url: '',
-  //     image:'',
-  //     ingredients: [],
-  //     totalTime: 0,
-  //     calories: 0,
-  //     healthLabels: '',
-  //     bookmarked: true}
-  // ]
-
-  // favorites: Favorite[] = []
 
   ngOnInit() {
     this.api.recipes.subscribe(data => this.recipes = data);
@@ -102,7 +71,6 @@ export class RecipeListComponent implements OnInit {
       this.filterRecipes();
       } 
 
-
     }
   }
 
@@ -114,7 +82,12 @@ export class RecipeListComponent implements OnInit {
     
     
   }
-  
+
+
+
+
+
+
   addFavorite = (recipe) => {
     this.recipes[recipe].bookmarked = !this.recipes[recipe].bookmarked;
     this.api.updateRecipes(this.recipes);

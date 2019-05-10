@@ -20,6 +20,12 @@ h1 {
     margin: 10px;
 }
 
+#favorite-home {
+    font-size: 50px;
+    color: hsl(0, 73%, 42%);
+    margin: 10px;
+}
+
 /******************************** recipes styles ********************************/
 
 .pag_btns {
@@ -68,7 +74,7 @@ h1 {
     font-weight: bold;
 }
 
-.fa-heart{
+.fa-heart {
     position: absolute;
     left: 5px;
     top: 5px;
@@ -77,8 +83,7 @@ h1 {
     background-color: #fff;
     padding: 5px;
     border-radius: 3px;
-    /* color: hsl(0, 73%, 42%); */
-
+   
 }
 
 .image-container {
@@ -86,5 +91,5 @@ h1 {
 }
 
 .red {
-    color: red;
+     color: hsl(0, 73%, 42%);
 }
