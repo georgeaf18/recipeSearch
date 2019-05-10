@@ -1,28 +1,15 @@
-<!-- <div *ngIf="event"> -->
-
-<h1>Favorite Recipes</h1>
-<i class="fa fa-home"
-routerLink="/" 
+<h1 routerLink="/" 
 routerLinkActive="active"
-[routerLinkActiveOptions]="{ exact: true }">
-</i>
+[routerLinkActiveOptions]="{ exact: true }">Nom Nom Favorites</h1>
 
-<div class="favorite-container">
+<div class="favorites-container">
+<div class="favorites-recipe_div"  *ngFor='let favorite of favorites'>
+    <h1 class='favorites-recipe_heading'>{{favorite.recipe.label}}</h1>
 
- 
-  <div class= "favorite" *ngFor='let favorite of favorites'>
-      <p>Favorite</p>
-      
-      <h1 class='favorite_recipe_heading'>{{favorite.recipe.label}}</h1>
+  <a href={{favorite.recipe.url}}><img class='favorites-recipe_img' src={{favorite.recipe.image}} alt=""></a>
   
-      <a href={{favorite.recipe.url}}><img class='favorite_recipe_img' src={{favorite.recipe.image}} alt=""></a>
-    
-      <i class="fa fa-heart" (click)= "unFavorite()"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
-     
-    
-      <button>More Info</button>
-
-    </div>
-
-
+  
 </div>
+  
+    
+

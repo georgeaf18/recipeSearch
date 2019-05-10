@@ -1,3 +1,13 @@
+#favorite-home {
+    font-size: 50px;
+    color: hsl(0, 73%, 42%);
+    margin: 10px;
+}
+
+.red {
+    color: hsl(0, 73%, 42%);
+ }
+
 h1 {
     text-align: center;
 }
@@ -17,12 +27,6 @@ h1 {
 }
 
 .seachInput {
-    margin: 10px;
-}
-
-#favorite-home {
-    font-size: 50px;
-    color: hsl(0, 73%, 42%);
     margin: 10px;
 }
 
@@ -74,7 +78,7 @@ h1 {
     font-weight: bold;
 }
 
-.fa-heart {
+.fa-heart{
     position: absolute;
     left: 5px;
     top: 5px;
@@ -83,13 +87,10 @@ h1 {
     background-color: #fff;
     padding: 5px;
     border-radius: 3px;
-   
+    /* color: hsl(0, 73%, 42%); */
+
 }
 
 .image-container {
     position: relative;
-}
-
-.red {
-     color: hsl(0, 73%, 42%);
 }

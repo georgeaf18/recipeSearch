@@ -1,27 +1,24 @@
-import { Component, OnInit, Input,  } from '@angular/core';
-import { Api } from '../services/api.service'
-import { RecipeListComponent } from '../recipe-list/recipe-list.component';
+import { Component, OnInit } from '@angular/core';
+import { Api } from '../services/api.service';
 
 @Component({
-  selector: 'favorites-page',
+  selector: 'app-favorites-page',
   templateUrl: './favorites-page.component.html',
-  styleUrls: ['./favorites-page.component.css'],
-  providers: [Api]
+  styleUrls: ['./favorites-page.component.css']
 })
-
-
 export class FavoritesPageComponent implements OnInit {
- favorites = any;
-  // @Input() event: Event;
-  // @Input() favorites: Recipe[];
-
+ 
+favorites: any[];
 
   constructor(private api: Api) { }
-  
 
   ngOnInit() {
+    this.api.recipes.subscribe(data => this.favorites = data.filter(recipe => recipe.bookmarked));
   }
 
+  
+
+}
 
   // addFavorite = (i) => {
   //   this.recipes[i].bookmarked = true;
@@ -29,10 +26,10 @@ export class FavoritesPageComponent implements OnInit {
   //   };
   
     
-    unFavorite = (index) => {
-      this.favorites[index].bookmarked = false;
-      this.favorites.splice(index, 1);
-    }
+    // unFavorite = (index) => {
+    //   this.favorites[index].bookmarked = false;
+    //   this.favorites.splice(index, 1);
+    // }
 
 
-}
+
