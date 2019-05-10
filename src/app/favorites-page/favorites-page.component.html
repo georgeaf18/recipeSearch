@@ -9,8 +9,10 @@
 <h1>Favorites</h1>
 
 <div>
-  <div class="recipe_div"  *ngFor='let favorite of favorites'>
-      <h1 class='recipe_heading'>{{favorite.recipe.label}}</h1>
+  
+  <div class="recipe_div"  *ngFor='let favorite of favorites; let i = index'>
+    <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': favorite.bookmarked === true}"></i>
+    <h1 class='recipe_heading'>{{favorite.recipe.label}}</h1>
 
     <a href={{favorite.recipe.url}}><img class='recipe_img' src={{favorite.recipe.image}} alt=""></a>
       

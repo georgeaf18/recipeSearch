@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
 import { Api } from './services/api.service';
+import { SearchCriteriaComponent} from './search-criteria/search-criteria.component'
 
 
 const appRoutes: Routes = [
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     RecipeListComponent,
-    FavoritesPageComponent
+    FavoritesPageComponent,
+    SearchCriteriaComponent
   ],
   imports: [
     BrowserModule,
