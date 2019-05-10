@@ -4,12 +4,27 @@
     margin: 10px;
 }
 
-.red {
-    color: hsl(0, 73%, 42%);
- }
 
-h1 {
-    text-align: center;
+.subFilter {
+    margin: 10px 10px 10px 0px;
+    width: 100px;
+    font-size: 12px;
+    border: none;
+    background-color: rgb(219, 218, 218);
+}
+
+.link {
+    text-decoration: none;
+}
+
+.modalButton {
+   background: #007bff;
+   color: #fff;
+   border-radius: 5px;
+   border: none;
+   width: 30%;
+   margin: 0 auto;
+   padding: 5px;
 }
 
 
@@ -18,7 +33,8 @@ h1 {
 .pag_btns {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 .pag_btns i {
@@ -39,7 +55,7 @@ h1 {
     border: solid black .5px;
     width: 160px;
     padding: 20px;
-    margin: 40px;
+    margin: 5px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -61,6 +77,10 @@ h1 {
     font-weight: bold;
 }
 
+.btn-primary {
+    margin: 10px;
+}
+
 .fa-heart{
     position: absolute;
     left: 5px;
@@ -76,4 +96,12 @@ h1 {
 
 .image-container {
     position: relative;
+}
+
+.red {
+    color: red;
+}
+
+.modal-content {
+    padding: 20px;
 }
