@@ -1,3 +1,16 @@
-<p>
-  favorites-page works!
-</p>
+<a 
+	routerLink="/" 
+	routerLinkActive="active"
+	[routerLinkActiveOptions]="{ exact: true }">
+	Home
+</a>
+
+<h1>Favorites</h1>
+
+<div>
+  <div class="recipe_div"  *ngFor='let favorite of favorites'>
+      <h1 class='recipe_heading'>{{favorite.recipe.label}}</h1>
+
+    <a href={{favorite.recipe.url}}><img class='recipe_img' src={{favorite.recipe.image}} alt=""></a>
+
+</div>
