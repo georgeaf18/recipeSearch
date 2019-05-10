@@ -19,39 +19,22 @@ interface Recipe {
   bookmarked: boolean;
 }
 
-interface ApiData {
-  results: Recipe;
-  hits: Recipe[];
-}
 
-interface Favorite {
-  label: string;
-  url: string;
-  image: string;
-  ingredients: [];
-  totalTime: number;
-  calories: number;
-  healthLabels: string;
-  bookmarked: boolean;
-}
 
-// interface Favorite {
-//   bookmarked: boolean;
-// }
 
 @Component({
   selector: 'recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
-  providers: [Api]
 })
 
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
-  searchInput: String;
   bookmarked: boolean;
   favorites: Recipe[];
-  numberIngr: string = '2+'
+  searchInput: String;
+  health: string = 'alcohol-free';
+  numberIngr: string = '2+';
   pagFrom: number = 0;
   pagTo: number = 20;
   modalIndex: number;
@@ -59,28 +42,13 @@ export class RecipeListComponent implements OnInit {
   modalCalories: number;
   modalUrl: string;
 
-  health: string = 'alcohol-free';
-  // health: string = 'alcohol-free';
 
 
   constructor(private api: Api) { }
   
 
-  // favorites: Favorite [] = [
-  //   { label: '',
-  //     url: '',
-  //     image:'',
-  //     ingredients: [],
-  //     totalTime: 0,
-  //     calories: 0,
-  //     healthLabels: '',
-  //     bookmarked: true}
-  // ]
-
-  // favorites: Favorite[] = []
-
   ngOnInit() {
-    
+    this.api.recipes.subscribe(data => this.recipes = data);
   }
 
   console = (index) => {
@@ -110,68 +78,20 @@ export class RecipeListComponent implements OnInit {
   }
 
   filterRecipes = () => {
-    
-    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr), this.pagFrom, this.pagTo ).subscribe((data: ApiData) => {
-      this.recipes = data.hits;
-    });
 
-    console.log(this.health);
+    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr), this.pagFrom, this.pagTo ).subscribe((data: ApiData) => {
+      this.api.updateRecipes(data.hits);
+    });
+    
+    
   }
 
+  
+  
   addFavorite = (recipe) => {
-    this.recipes[recipe].bookmarked = true;
-    const favorites = [];
-    this.favorites.push(recipe);
+    this.recipes[recipe].bookmarked = !this.recipes[recipe].bookmarked;
+    this.api.updateRecipes(this.recipes);
   };
 
-  //  addFavorite = (recipe) => {
-  //   this.recipes[recipe].bookmarked = true;
-  //       const newFavorite = {
-  //       label: '',
-  //       url: '',
-  //       image:'',
-  //       ingredients: [],
-  //       totalTime: 0,
-  //       calories: 0,
-  //       healthLabels: '',
-  //       bookmarked: false,
-  //   };
-  //   this.favorites.push(newFavorite);
-  // };
-
-  // addFavorite = (index) => {
-  //   this.recipe[index].bookmarked = true;
-  // };
-  // addFavorite = (recipe) => {
-  //   this.recipe[recipe].bookmarked = true;
-  // };
-
-  // addFavorite = (index) => {
-  //   const newFavorite = {
-  //   label: '',
-  //   url: '',
-  //   image:'',
-  //   ingredients: [],
-  //   totalTime: 0,
-  //   calories: 0,
-  //   healthLabels: '',
-  //   bookmarked: false,
-  //   };
-  //   this.favorites.push(newFavorite);
-  // };
-
-  // addFavorite = (index) => {
-  //   const newFavorite = {
-  //   label: '',
-  //   url: '',
-  //   image:'',
-  //   ingredients: [],
-  //   totalTime: 0,
-  //   calories: 0,
-  //   healthLabels: '',
-  //   bookmarked: false,
-  //   };
-  //   this.favorites.push(newFavorite);
-  // };
 
 }

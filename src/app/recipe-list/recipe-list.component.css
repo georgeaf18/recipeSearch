@@ -1,12 +1,6 @@
-h1 {
-    text-align: center;
-}
-.search {
-    text-align: center;
-}
-
-.search_button {
-    width: 200px;
+#favorite-home {
+    font-size: 50px;
+    color: hsl(0, 73%, 42%);
     margin: 10px;
 }
 
@@ -32,6 +26,7 @@ h1 {
    margin: 0 auto;
    padding: 5px;
 }
+
 
 /******************************** recipes styles ********************************/
 

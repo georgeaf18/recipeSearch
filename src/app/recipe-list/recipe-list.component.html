@@ -1,9 +1,6 @@
 <h1 id="example">Nom Nom Recipes</h1>
 
 
-<div class="search">
-  <input [(ngModel)]="searchInput" class="searchInput" type="text" placeholder="Search for a recipe"/>
-  <button (click) = 'filterRecipes()' type="button" class="btn btn-primary">Search</button>
 
   
   <label for="numberIngr">&nbsp;&nbsp;Ingredients&nbsp;&nbsp;</label>
@@ -22,9 +19,8 @@
     <option value="peanut-free">Peanut-free</option>
     <option value="vegetarian">Vegetarian</option>
 
-  </select>
+<app-search-criteria></app-search-criteria>
 
-</div>
 
 <div class="favorite-container">
   <div class= "favorite" *ngFor='let favorite of favorites'>
@@ -73,4 +69,3 @@
 
 
 </div>
-

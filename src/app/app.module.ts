@@ -7,6 +7,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
+import { Api } from './services/api.service';
+import { SearchCriteriaComponent} from './search-criteria/search-criteria.component'
+
 
 const appRoutes: Routes = [
   {path: '', component: RecipeListComponent},
@@ -18,7 +21,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     RecipeListComponent,
-    FavoritesPageComponent
+    FavoritesPageComponent,
+    SearchCriteriaComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [Api],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
