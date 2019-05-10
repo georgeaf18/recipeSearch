@@ -1,9 +1,10 @@
-<a 
-	routerLink="/" 
-	routerLinkActive="active"
-	[routerLinkActiveOptions]="{ exact: true }">
-	Home
-</a>
+
+
+<i class="fa fa-home"
+  routerLink="/" 
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{ exact: true }">
+  </i>
 
 <h1>Favorites</h1>
 
@@ -12,5 +13,6 @@
       <h1 class='recipe_heading'>{{favorite.recipe.label}}</h1>
 
     <a href={{favorite.recipe.url}}><img class='recipe_img' src={{favorite.recipe.image}} alt=""></a>
-
+      
+    
 </div>
