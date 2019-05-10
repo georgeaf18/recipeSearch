@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Api } from '../services/api.service'
-// import { EventEmitter } from 'events';
 
 interface RecipeInfo {
   label: string;
@@ -25,7 +24,6 @@ interface ApiData {
   hits: Recipe[];
 }
 
-
 @Component({
   selector: 'recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -34,71 +32,74 @@ interface ApiData {
 })
 
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[]; 
+  recipes: Recipe[];
   searchInput: String;
   bookmarked: boolean;
+  numberIngr: string = '2+'
+  pagFrom: number = 0;
+  pagTo: number = 20;
+  modalIndex: number;
+  modalRecipe: RecipeInfo[];
+  modalCalories: number;
   health: string = 'alcohol-free';
-  caloriesRange: string = '1+';
-  // clicked: boolean;
-  favorites: Recipe[];
 
- 
-  // @Input() favorites: Recipe[];
-  // @Output() eventClicked = new EventEmitter<Event>();
-  // @Output() eventClicked = new EventEmitter<boolean>();
- 
 
   constructor(private api: Api) { }
-  
+
 
   ngOnInit() {
     
   }
 
+  console = (index) => {
+    console.log(this.recipes[index])
+  }
+
+  show = (i) => {
+    this.modalRecipe = this.recipes[i].recipe;
+    this.modalCalories = Math.round(this.modalRecipe.calories);
+  }
+
+  changePag = (where) => {
+    if (where === true){
+      this.pagFrom += 20;
+      this.pagTo += 20;
+      this.filterRecipes();
+    } else if (where === false){
+      if(this.pagFrom > 0 ){
+      this.pagFrom -= 20;
+      this.pagTo -= 20;
+      this.filterRecipes();
+      } 
+
+    }
+  }
+
   filterRecipes = () => {
-    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.caloriesRange) ).subscribe((data: ApiData) => {
+    
+    this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr), this.pagFrom, this.pagTo ).subscribe((data: ApiData) => {
       this.recipes = data.hits;
     });
 
     console.log(this.health);
   }
 
-  // onClick(event:Event): void {
-  //   this.eventClicked.emit(event);
-  // }
 
-  // addFavorite = () => {
-  //   this.eventClicked.emit(true);
-  // }
-
- 
-  //  addFavorite = (i) => {
-  //   this.recipes[i].bookmarked = true;
-  //    this.favorites.push(this.recipes[i]);
-  //   };
-
-    // console.log(this.favorites);
+ favorites: Recipe[] = [];
+ addFavorite = (i) => {
+  this.recipes[i].bookmarked = true;
+   this.favorites.push(this.recipes[i]);
+  };
 
   
-  // };
-
-  // favorites: Recipe[] = [];
-  //  addFavorite = (i) => {
-  //   this.recipes[i].bookmarked = true;
-  //    this.favorites.push(this.recipes[i]);
-  //   });
-      
-  // console.log(this.favorites);
-
-  // };
+  unFavorite = (index) => {
+    this.recipes[index].bookmarked = false;
+    this.favorites.splice(index, 1);
+  }
 
 
-  //  favorites: Recipe[] = [];
-  //  addFavorite = (i) => {
-  //    this.clicked.emit( this.recipes[i].bookmarked = true);
-  //   this.favorites.push(this.recipes[i]);
-  //   };
-  //   console.log(this.favorites[i]);
 
 
 }
+
+
