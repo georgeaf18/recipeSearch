@@ -1,13 +1,12 @@
-<h1>Nom Nom Recipes</h1>
+<h1 id="example">Nom Nom Recipes</h1>
 
 
 <div class="search">
   <input [(ngModel)]="searchInput" class="searchInput" type="text" placeholder="Search for a recipe"/>
   <button (click) = 'filterRecipes()' type="button" class="btn btn-primary">Search</button>
 
-  <br />
   
-  <label for="numberIngr">Number of ingredients</label>
+  <label for="numberIngr">&nbsp;&nbsp;Ingredients&nbsp;&nbsp;</label>
   <select id="numberIngr" [(ngModel)]= 'numberIngr' class="subFilter">
     <option value="2+">Any</option>
     <option value="2-5">2-5 ingredients</option>
@@ -16,7 +15,7 @@
 
   </select>
 
-  <label for="health">Health</label>
+  <label for="health">&nbsp;&nbsp;Health&nbsp;&nbsp;</label>
   <select id="health" [(ngModel)]= 'health' class="subFilter">
     <option value="alcohol-free">Any</option>
     <option value="vegan">Vegan</option>
@@ -28,55 +27,30 @@
 </div>
 
 <div class="favorite-container">
-<div class= "favorite" *ngFor='let favorite of favorites'>
-    <p>Favorite</p>
-    <h1 class='recipe_heading'>{{favorite.favorite.label}}</h1>
-    <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
+  <div class= "favorite" *ngFor='let favorite of favorites'>
+      <p>Favorite</p>
+      <h1 class='recipe_heading'>{{favorite.favorite.label}}</h1>
+      <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
+    </div>
   </div>
+
+  <div class="container">
+
+    <div class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
+    
+    <div class="image-container">
+      <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
+      <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
+    </div>  
+
+    <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button>
+
+    <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
 </div>
 
-<div class="container">
-
-  <div class='pag_btns'>
-      <i (click)= 'changePag(false)' class="fas fa-hand-point-left"></i>
-      <i (click)= 'changePag(true)' class="fas fa-hand-point-right"></i>
-  </div>
-
-  <div class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
-  <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
-  
-
-  
-
-
-
-  <!-- <div>
-    <a href={{recipe.recipe.url}}>
-      <img class='recipe_img' src={{recipe.recipe.image}} alt="">
-    </a>
-  </div> -->
-
-  
-
-
-  <!-- <ul>
-    <li *ngFor = 'let ingredient of recipe.recipe.ingredientLines'>{{ingredient}}</li>
-  </ul> -->
-  <div class="image-container">
-
-  <a href={{recipe.recipe.url}}><img class='recipe_img' src={{recipe.recipe.image}} alt=""></a>
-
-  <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
-  <!-- <i class="fa fa-heart"></i> -->
-  </div>  
-
-
-  <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button>
-  <button (click) = 'console(i)'>console</button>
-  
-
-
-  
+<div class='pag_btns'>
+    <a href="#example"><i (click)= 'changePag(false)' class="fas fa-long-arrow-alt-left"></i></a>
+    <a href="#example"><i (click)= 'changePag(true)' class="fas fa-long-arrow-alt-right"></i></a>
 </div>
 
 <div *ngIf="this.modalRecipe" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -91,7 +65,7 @@
         
         <p>Kcal: {{ this.modalCalories }}</p>
           
-
+        <button class="modalButton"><a href={{this.modalUrl}} alt="source" target="_blank" style="color: #fff;">Source</a></button>
         
       </div>
     </div>
