@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Api } from '../services/api.service';
 
 @Component({
   selector: 'app-favorites-page',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesPageComponent implements OnInit {
  
+favorites: any[];
 
-
-  constructor() { }
+  constructor(private api: Api) { }
 
   ngOnInit() {
+    this.api.recipes.subscribe(data => this.favorites = data.filter(recipe => recipe.bookmarked));
   }
+
+  
 
 }

@@ -43,7 +43,6 @@ interface Favorite {
   selector: 'recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css'],
-  providers: [Api]
 })
 
 export class RecipeListComponent implements OnInit {
@@ -79,7 +78,7 @@ export class RecipeListComponent implements OnInit {
   // favorites: Favorite[] = []
 
   ngOnInit() {
-    
+    this.api.recipes.subscribe(data => this.recipes = data);
   }
 
   console = (index) => {
@@ -108,68 +107,18 @@ export class RecipeListComponent implements OnInit {
   }
 
   filterRecipes = () => {
-    
+
     this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr), this.pagFrom, this.pagTo ).subscribe((data: ApiData) => {
-      this.recipes = data.hits;
+      this.api.updateRecipes(data.hits);
     });
-
-    console.log(this.health);
+    
+    
   }
-
+  
   addFavorite = (recipe) => {
-    this.recipes[recipe].bookmarked = true;
-    const favorites = [];
-    this.favorites.push(recipe);
+    this.recipes[recipe].bookmarked = !this.recipes[recipe].bookmarked;
+    this.api.updateRecipes(this.recipes);
   };
 
-  //  addFavorite = (recipe) => {
-  //   this.recipes[recipe].bookmarked = true;
-  //       const newFavorite = {
-  //       label: '',
-  //       url: '',
-  //       image:'',
-  //       ingredients: [],
-  //       totalTime: 0,
-  //       calories: 0,
-  //       healthLabels: '',
-  //       bookmarked: false,
-  //   };
-  //   this.favorites.push(newFavorite);
-  // };
-
-  // addFavorite = (index) => {
-  //   this.recipe[index].bookmarked = true;
-  // };
-  // addFavorite = (recipe) => {
-  //   this.recipe[recipe].bookmarked = true;
-  // };
-
-  // addFavorite = (index) => {
-  //   const newFavorite = {
-  //   label: '',
-  //   url: '',
-  //   image:'',
-  //   ingredients: [],
-  //   totalTime: 0,
-  //   calories: 0,
-  //   healthLabels: '',
-  //   bookmarked: false,
-  //   };
-  //   this.favorites.push(newFavorite);
-  // };
-
-  // addFavorite = (index) => {
-  //   const newFavorite = {
-  //   label: '',
-  //   url: '',
-  //   image:'',
-  //   ingredients: [],
-  //   totalTime: 0,
-  //   calories: 0,
-  //   healthLabels: '',
-  //   bookmarked: false,
-  //   };
-  //   this.favorites.push(newFavorite);
-  // };
 
 }

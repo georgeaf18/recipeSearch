@@ -1,5 +1,13 @@
 <h1>Nom Nom Recipes</h1>
 
+<a 
+    routerLink="favorites" 
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">
+    Heart
+</a>
+
+
 
 <div class="search">
   <input [(ngModel)]="searchInput" class="searchInput" type="text" placeholder="Search for a recipe"/>
