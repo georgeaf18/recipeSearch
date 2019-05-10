@@ -19,7 +19,10 @@ interface Recipe {
   bookmarked: boolean;
 }
 
-
+interface ApiData {
+  results: Recipe;
+  hits: Recipe[];
+}
 
 
 @Component({
@@ -56,7 +59,7 @@ export class RecipeListComponent implements OnInit {
 
   show = (i) => {
     this.modalRecipe = this.recipes[i].recipe;
-    this.modalCalories = Math.round(this.modalRecipe.calories);
+    // this.modalCalories = Math.round(this.modalRecipe.calories);
   }
 
   changePag = (where) => {
