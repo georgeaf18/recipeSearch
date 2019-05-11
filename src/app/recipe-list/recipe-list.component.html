@@ -4,7 +4,15 @@
   routerLinkActive="active"
   [routerLinkActiveOptions]="{ exact: true }"></i>
 
-<app-search-criteria></app-search-criteria>
+
+
+
+
+
+<app-search-criteria
+(searched) = 'newSearchCriteria($event)'
+></app-search-criteria>
+
 
 <div class="container">
 
