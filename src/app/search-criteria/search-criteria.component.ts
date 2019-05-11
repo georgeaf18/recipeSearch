@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Api } from '../services/api.service';
 
 interface RecipeInfo {
@@ -36,6 +36,8 @@ export class SearchCriteriaComponent implements OnInit {
   ngOnInit() {
   }
 
+  @Output() searched = new EventEmitter<String>();
+
 
   searchInput: String;
   health: string = 'alcohol-free';
@@ -45,13 +47,15 @@ export class SearchCriteriaComponent implements OnInit {
 
 
 
+
+
   filterRecipes = () => {
 
     this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr), this.pagFrom, this.pagTo ).subscribe((data: ApiData) => {
       this.api.updateRecipes(data.hits);
     });
     
-    
+    this.searched.emit(this.searchInput);
   }
 
 }
