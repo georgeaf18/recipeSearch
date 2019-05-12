@@ -1,17 +1,16 @@
 h1 {
     text-align: center;
 }
-.fa-home {
-    font-size: 50px;
-    color: hsl(0, 73%, 42%);
-    margin: 10px;
-}
 
 .favorites-container {
     display: flex;
     flex-direction: row;  
     flex-wrap: wrap;
     width: 100%;
+}
+
+.modal {
+    margin-top: 10px;
 }
 
 .favorites-recipe_div {
@@ -24,6 +23,7 @@ h1 {
     border-radius: 5px;
     font-size: 10px;
     flex-wrap: wrap;
+
 }
 
 .favorites-recipe_img {
@@ -37,4 +37,21 @@ h1 {
     text-align: center;
     font-size: 15px;
     font-weight: bold;
+}
+
+.fa-heart{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    font-size: 15px;
+    color: gray;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    /* color: hsl(0, 73%, 42%); */
+
+}
+
+.favorites-image-container {
+    position: relative;
 }

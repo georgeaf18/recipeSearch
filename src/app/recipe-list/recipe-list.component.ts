@@ -59,7 +59,7 @@ export class RecipeListComponent implements OnInit {
 
   show = (i) => {
     this.modalRecipe = this.recipes[i].recipe;
-    // this.modalCalories = Math.round(this.modalRecipe.calories);
+    this.modalCalories = Math.round(this.modalRecipe.calories);
   }
 
   changePag = (where) => {
@@ -88,11 +88,14 @@ export class RecipeListComponent implements OnInit {
   }
 
   
-  
   addFavorite = (recipe) => {
     this.recipes[recipe].bookmarked = !this.recipes[recipe].bookmarked;
     this.api.updateRecipes(this.recipes);
   };
 
 
+
+  newSearchCriteria = (event) => {
+    this.searchInput = event;
+  }
 }
