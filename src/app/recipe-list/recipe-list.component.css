@@ -5,7 +5,7 @@
 }
 
 .red {
-    color: hsl(0, 73%, 42%);
+    color: hsl(0, 73%, 42%)!important;
  }
 
 h1 {
