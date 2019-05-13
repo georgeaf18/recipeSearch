@@ -3,4 +3,10 @@ html {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
     scroll-behavior: smooth;
+    
 }
+
+*:focus {
+    outline: 0;
+    outline: none;
+    }

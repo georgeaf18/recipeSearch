@@ -2,6 +2,8 @@ h1 {
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
+    cursor: default;
+
 }
 .fa-home {
     font-size: 50px;
@@ -61,4 +63,53 @@ h1 {
     font-size: 15px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
+    margin: auto;
+
 }
+
+.favorites-image-container {
+    position: relative;
+}
+
+.fa-heart{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    font-size: 15px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    /* color: hsl(0, 73%, 42%); */
+    color: gray;
+}
+
+.homeButton {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+ }
+ 
+ .homeButton:hover {
+    color:#007bff;
+ }
+
+
+.red {
+    color: hsl(0, 73%, 42%)!important;
+}
+/******************************** modal styles ********************************/
+.modal {
+    margin-top: 10px;
+}
+.modal-content {
+    padding: 15px 25px 25px 25px;
+    border: 2px solid black;
+}
+
+
+
+
