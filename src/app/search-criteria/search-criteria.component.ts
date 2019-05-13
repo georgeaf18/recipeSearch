@@ -59,4 +59,3 @@ export class SearchCriteriaComponent implements OnInit {
   }
 
 }
-

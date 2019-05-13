@@ -1,13 +1,6 @@
-
-*:focus {
-    outline: 0;
-    outline: none;
-    }
-
 /* You can add global styles to this file, and also import other style files */
 html {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
     scroll-behavior: smooth;
 }
-
