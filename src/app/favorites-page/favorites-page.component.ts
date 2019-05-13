@@ -9,10 +9,9 @@ import { Api } from '../services/api.service';
 export class FavoritesPageComponent implements OnInit {
 favorites: any[];
 modalIndex: number;
-// modalRecipe: RecipeInfo[];
 modalRecipe: any[];
-modalCalories: number;
 bookmarked: boolean;
+recipes: any[];
 
 
   constructor(private api: Api) { }
@@ -27,10 +26,14 @@ bookmarked: boolean;
     this.api.updateRecipes(this.favorites);
   };
 
+  // removeFavorite = (recipe) => {
+  //   this.favorites[recipe].bookmarked = !this.favorites[recipe].bookmarked;
+  //   this.api.updateRecipes(this.favorites);
+  // };
+
 
   show = (i) => {
     this.modalRecipe = this.favorites[i].recipe;
-    // this.modalCalories = Math.round(this.modalRecipe.calories);
   }
 
 
