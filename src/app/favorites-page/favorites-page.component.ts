@@ -7,8 +7,12 @@ import { Api } from '../services/api.service';
   styleUrls: ['./favorites-page.component.css']
 })
 export class FavoritesPageComponent implements OnInit {
- 
 favorites: any[];
+modalIndex: number;
+modalRecipe: any[];
+bookmarked: boolean;
+recipes: any[];
+
 
   constructor(private api: Api) { }
 
@@ -21,18 +25,12 @@ favorites: any[];
     this.favorites[recipe].bookmarked = !this.favorites[recipe].bookmarked;
     this.api.updateRecipes(this.favorites);
   };
+
+
+
+  show = (i) => {
+    this.modalRecipe = this.favorites[i].recipe;
+  }
+
+
 }
-
-  // addFavorite = (i) => {
-  //   this.recipes[i].bookmarked = true;
-  //    this.favorites.push(this.recipes[i]);
-  //   };
-  
-    
-    // unFavorite = (index) => {
-    //   this.favorites[index].bookmarked = false;
-    //   this.favorites.splice(index, 1);
-    // }
-
-
-
