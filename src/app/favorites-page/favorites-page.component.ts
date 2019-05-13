@@ -26,10 +26,6 @@ recipes: any[];
     this.api.updateRecipes(this.favorites);
   };
 
-  // removeFavorite = (recipe) => {
-  //   this.favorites[recipe].bookmarked = !this.favorites[recipe].bookmarked;
-  //   this.api.updateRecipes(this.favorites);
-  // };
 
 
   show = (i) => {
