@@ -26,7 +26,6 @@ interface ApiData {
 
 
 
-
 @Component({
   selector: 'recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -47,6 +46,7 @@ export class RecipeListComponent implements OnInit {
   modalCalories: number;
   modalUrl: string;
 
+
   
 
   constructor(private api: Api) { }
@@ -64,6 +64,7 @@ export class RecipeListComponent implements OnInit {
     this.modalRecipe = this.recipes[i].recipe;
     this.modalCalories = Math.round(this.modalRecipe.calories);
     this.modalUrl = this.modalRecipe.url;
+
   }
 
   changePag = (where) => {
@@ -96,11 +97,14 @@ export class RecipeListComponent implements OnInit {
   }
 
   
-  
   addFavorite = (recipe) => {
     this.recipes[recipe].bookmarked = !this.recipes[recipe].bookmarked;
     this.api.updateRecipes(this.recipes);
   };
 
 
+
+  newSearchCriteria = (event) => {
+    this.searchInput = event;
+  }
 }

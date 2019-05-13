@@ -1,8 +1,10 @@
+/******************************** header styles ********************************/
 #favorite-home {
     font-size: 20px;
     color: hsl(0, 73%, 42%);
     margin: 10px;
 }
+
 
 .red {
     color: hsl(0, 73%, 42%)!important;
@@ -11,7 +13,6 @@
 h1 {
     text-align: center;
 }
-
 
 /******************************** recipes styles ********************************/
 
@@ -41,12 +42,14 @@ h1 {
     font-weight: lighter;
 }
 
+
 .modal-content {
     margin-top: 10px;
     padding: 20px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
 }
+
 
 .recipe_div {
     background-color: rgb(237, 237, 237);
@@ -61,12 +64,22 @@ h1 {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
 
+
+.recipe_heading {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.image-container {
+    position: relative;
 }
 
 .recipe_img {
     width: 100%;
     max-width: 160px;
     margin: auto;
+
 
 }
 
@@ -75,6 +88,7 @@ h1 {
     font-size: 15px;
     font-weight: bold;
     padding-top: 7px;
+
 }
 
 .fa-heart{
@@ -86,17 +100,24 @@ h1 {
     background-color: #fff;
     padding: 5px;
     border-radius: 3px;
-    /* color: hsl(0, 73%, 42%); */
-}
+
 
 .favorites {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
     font-size: 20px;
     color: hsl(0, 73%, 42%);
+
 }
 
-.image-container {
-    position: relative;
+
+/******************************** modal styles ********************************/
+.modal {
+    margin-top: 10px;
+}
+
+.modal-content {
+    padding: 15px 25px 25px 25px;
+    border: 2px solid black;
 }
 

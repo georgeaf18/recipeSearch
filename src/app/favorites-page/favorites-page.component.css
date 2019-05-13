@@ -1,5 +1,11 @@
+/******************************** header styles ********************************/
 h1 {
     text-align: center;
+    cursor: default;
+}
+
+/******************************** recipes styles ********************************/
+
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
 }
@@ -28,6 +34,7 @@ h1 {
     top: 10px;
 }
 
+
 .favorites-container {
     display: flex;
     flex-direction: row;  
@@ -49,16 +56,49 @@ h1 {
     font-weight: lighter;
 }
 
+.favorites-recipe_heading {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.favorites-image-container {
+    position: relative;
+}
+
 .favorites-recipe_img {
     width: 100%;
     max-width: 160px;
     margin: auto;
-
 }
 
-.favorites-recipe_heading {
-    text-align: center;
+.fa-heart{
+    position: absolute;
+    left: 5px;
+    top: 5px;
     font-size: 15px;
+
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    /* color: hsl(0, 73%, 42%); */
+    color: gray;
+}
+
+.red {
+    color: hsl(0, 73%, 42%)!important;
+}
+
+/******************************** modal styles ********************************/
+.modal {
+    margin-top: 10px;
+}
+
+.modal-content {
+    padding: 15px 25px 25px 25px;
+    border: 2px solid black;
+
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
+
 }
