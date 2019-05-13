@@ -1,5 +1,6 @@
 h1 {
     text-align: center;
+    cursor: default;
 }
 
 .favorites-container {
@@ -11,6 +12,12 @@ h1 {
 
 .modal {
     margin-top: 10px;
+}
+
+.modal-content {
+    margin: 20px;
+    padding: 15px 25px 25px 25px;
+    border: 2px solid black;
 }
 
 .favorites-recipe_div {
@@ -44,11 +51,10 @@ h1 {
     left: 5px;
     top: 5px;
     font-size: 15px;
-    color: gray;
     background-color: #fff;
     padding: 5px;
     border-radius: 3px;
-    /* color: hsl(0, 73%, 42%); */
+    color: hsl(0, 73%, 42%);
 
 }
 

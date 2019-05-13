@@ -30,7 +30,7 @@ bookmarked: boolean;
 
   show = (i) => {
     this.modalRecipe = this.favorites[i].recipe;
-    this.modalCalories = Math.round(this.modalRecipe.calories);
+    // this.modalCalories = Math.round(this.modalRecipe.calories);
   }
 
 

@@ -1,6 +1,12 @@
-<h1 routerLink="/" 
+<!-- <h1 routerLink="/" 
 routerLinkActive="active"
-[routerLinkActiveOptions]="{ exact: true }">Nom Nom Favorites</h1>
+[routerLinkActiveOptions]="{ exact: true }">Nom Nom Favorites</h1> -->
+
+<div routerLink="/" 
+routerLinkActive="active"
+[routerLinkActiveOptions]="{ exact: true }">
+<h1>Nom Nom Favorites</h1>
+</div>
 
 <div class="favorites-container">
   
@@ -29,7 +35,9 @@ routerLinkActive="active"
            <li *ngFor = 'let modalIngredient of this.modalRecipe.ingredientLines; let i=index'>{{modalIngredient}}</li>
         </ul>
         
-        <p>Kcal: {{ this.modalCalories }}</p>
+        <p>Kcal: {{ this.modalRecipe.calories | number: '1.0-0'}}</p>
+
+        <a href={{this.modalRecipe.url}} target="_blank">See more details...</a>
 
       </div>
     </div>
