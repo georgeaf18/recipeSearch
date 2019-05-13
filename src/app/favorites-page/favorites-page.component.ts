@@ -17,13 +17,17 @@ recipes: any[];
   constructor(private api: Api) { }
 
   ngOnInit() {
-    this.api.recipes.subscribe(data => this.favorites = data.filter(recipe => recipe.bookmarked));
+    this.api.recipes.subscribe(data => {
+      this.favorites = data.filter(recipe => recipe.bookmarked);
+      this.recipes = data;
+    });
   }
 
   
   addFavorite = (recipe) => {
     this.favorites[recipe].bookmarked = !this.favorites[recipe].bookmarked;
-    this.api.updateRecipes(this.favorites);
+
+    this.api.updateRecipes(this.recipes);
   };
 
 
