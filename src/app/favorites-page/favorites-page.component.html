@@ -1,18 +1,21 @@
-<h1 routerLink="/" 
+<div routerLink="/" 
 routerLinkActive="active"
-[routerLinkActiveOptions]="{ exact: true }">Nom Nom Favorites</h1>
+><img class="logo" src="assets/img/logo.png" alt="logo"/></div>
 
-
+<div routerLink="/" 
+routerLinkActive="active"
+class="homeButton"
+>Home</div>
 
 <div class="favorites-container">
   
   <div class="favorites-recipe_div"  *ngFor='let favorite of favorites; let i = index'>
     <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': favorite.bookmarked === true}"></i>
-    <h1 class='favorites-recipe_heading'>{{favorite.recipe.label}}</h1>
 
-    <a href={{favorite.recipe.url}}><img class='favorites-recipe_img' src={{favorite.recipe.image}} alt=""></a>
+
+    <img class='favorites-recipe_img' src={{favorite.recipe.image}} alt="">
       
-   
+    <h1 class='favorites-recipe_heading'>{{favorite.recipe.label}}</h1>
 </div>
   
 </div>
