@@ -6,6 +6,35 @@ h1 {
 
 /******************************** recipes styles ********************************/
 
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+}
+.fa-home {
+    font-size: 50px;
+    color: hsl(0, 73%, 42%);
+    margin: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+}
+
+.logo {
+    width: 50%;
+    display: flex;
+    margin: auto;
+    padding: 20px;
+}
+
+.homeButton {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+
+
 .favorites-container {
     display: flex;
     flex-direction: row;  
@@ -23,6 +52,8 @@ h1 {
     border-radius: 5px;
     font-size: 10px;
     flex-wrap: wrap;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
 }
 
 .favorites-recipe_heading {
@@ -46,6 +77,7 @@ h1 {
     left: 5px;
     top: 5px;
     font-size: 15px;
+
     background-color: #fff;
     padding: 5px;
     border-radius: 3px;
@@ -65,4 +97,8 @@ h1 {
 .modal-content {
     padding: 15px 25px 25px 25px;
     border: 2px solid black;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+
 }

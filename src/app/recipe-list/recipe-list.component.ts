@@ -25,6 +25,7 @@ interface ApiData {
 }
 
 
+
 @Component({
   selector: 'recipe-list',
   templateUrl: './recipe-list.component.html',
@@ -41,9 +42,12 @@ export class RecipeListComponent implements OnInit {
   pagFrom: number = 0;
   pagTo: number = 20;
   modalIndex: number;
-  modalRecipe: RecipeInfo[];
+  modalRecipe;
+  modalCalories: number;
+  modalUrl: string;
 
 
+  
 
   constructor(private api: Api) { }
   
@@ -58,6 +62,9 @@ export class RecipeListComponent implements OnInit {
 
   show = (i) => {
     this.modalRecipe = this.recipes[i].recipe;
+    this.modalCalories = Math.round(this.modalRecipe.calories);
+    this.modalUrl = this.modalRecipe.url;
+
   }
 
   changePag = (where) => {
@@ -83,6 +90,10 @@ export class RecipeListComponent implements OnInit {
     });
     
     
+  }
+
+  newSearchCriteria = (event) => {
+    this.searchInput = event;
   }
 
   
