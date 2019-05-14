@@ -73,8 +73,9 @@ h1 {
 .recipe_heading {
     text-align: center;
     font-size: 15px;
-    font-weight: bold;
-    padding-top: 7px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    margin: auto;
 }
 
 .fa-heart{

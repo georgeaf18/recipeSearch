@@ -1,16 +1,15 @@
+<div id='top'><img class="logo" src="assets/img/logo.png" alt="logo"/></div>
+
 <div routerLink="/"
 routerLinkActive="active"
 class="homeButton"
 style="outline: none"
->Home</div>
-
-<h1 >Nom Nom Favorites</h1>
+>home</div>
 
 <div class="favorites-container">
   
   <div class="favorites-recipe_div"  *ngFor='let favorite of favorites; let i = index'>
-    <h1 class='favorites-recipe_heading'>{{favorite.recipe.label}}</h1>
-
+    
     <div class="favorites-image-container">
 
       <a href={{favorite.recipe.url}}><img class='favorites-recipe_img' src={{favorite.recipe.image}} alt=""></a>
@@ -18,7 +17,7 @@ style="outline: none"
       <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': favorite.bookmarked === true}"></i>
     
     </div>  
-      
+    <h1 class='favorites-recipe_heading'>{{favorite.recipe.label}}</h1>
     <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button>
   
   </div>

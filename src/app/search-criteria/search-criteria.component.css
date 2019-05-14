@@ -11,7 +11,7 @@
 
 .subFilter {
     width: 100px;
-    font-size: 12px;
+    font-size: 15px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
     border: none;
@@ -20,7 +20,7 @@
 }
 
 .label {
-    font-size: 12px;
+    font-size: 15px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
 }
@@ -28,12 +28,12 @@
 ::-webkit-input-placeholder {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
-    font-size: 12px;
+    font-size: 15px;
   }
 ::placeholder {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
-    font-size: 12px;
+    font-size: 15px;
     
   }
 
@@ -41,7 +41,7 @@
     margin: 0px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
-    font-size: 12px;
+    font-size: 15px;
     width: 300px;
     border: none;
     border-radius: 3px;
@@ -55,7 +55,7 @@
     margin: 0px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
-    font-size: 12px;
+    font-size: 15px;
     width: 300px;
     border-bottom: 1px solid #007bff;
     box-shadow: none;
@@ -74,5 +74,5 @@
 input[type="text"] {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
-    font-size: 12px;
+    font-size: 15px;
   }
