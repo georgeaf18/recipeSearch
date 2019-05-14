@@ -17,9 +17,9 @@ style="outline: none"
       <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': favorite.bookmarked === true}"></i>
     
     </div>  
-    <h1 class='favorites-recipe_heading'>{{favorite.recipe.label}}</h1>
-    <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button>
   
+    <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button>
+    <h1 class='favorites-recipe_heading'>{{favorite.recipe.label}}</h1>
   </div>
 
 <div *ngIf="this.modalRecipe" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
