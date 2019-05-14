@@ -1,9 +1,24 @@
+
 .logo {
     width: 50%;
     display: flex;
     margin: auto;
     padding: 5px;
 }
+
+.homeButton {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+ }
+ 
+ .homeButton:hover {
+    color:#007bff;
+ }
 
 .favorites-container {
     display: flex;
@@ -61,23 +76,12 @@
     color: gray;
 }
 
-.homeButton {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: lighter;
-    font-size: 20px;
-    color: #000;
-    position: absolute;
-    left: 20px;
-    top: 10px;
- }
- 
- .homeButton:hover {
-    color:#007bff;
- }
-
-
 .red {
     color: hsl(0, 73%, 42%)!important;
+}
+
+.btn-primary {
+    margin-top: 5px;
 }
 /******************************** modal styles ********************************/
 
@@ -87,6 +91,7 @@
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
 }
+
 
 
 
