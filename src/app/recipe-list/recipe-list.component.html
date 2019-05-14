@@ -6,13 +6,12 @@
   [routerLinkActiveOptions]="{ exact: true }"><span class="favorites">&nbsp;&nbsp;favorites</span></i>
 
 
-<app-search-criteria  (searched) = 'newSearchCriteria($event)'></app-search-criteria>
+<app-search-criteria (searched) = 'newSearchCriteria($event)'></app-search-criteria>
 
 
-<div class="container">
+<div  class="container">
 
-
-  <div class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
+  <div  class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
   
     <div class="image-container">
     <img class='recipe_img' src={{recipe.recipe.image}} alt="">
@@ -25,7 +24,7 @@
 
 </div>
 
-<div class='pag_btns'>
+<div *ngIf ='recipes.length' class='pag_btns'>
   <a href="#top"><i (click)= 'changePag(false)' class="fas fa-long-arrow-alt-left"></i></a>
   <a href="#top"><i (click)= 'changePag(true)' class="fas fa-long-arrow-alt-right"></i></a>
 </div>
