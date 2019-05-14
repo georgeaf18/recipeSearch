@@ -64,6 +64,7 @@ export class RecipeListComponent implements OnInit {
     this.modalUrl = this.modalRecipe.url;
   }
 
+
   changePag = (where) => {
     if (where === true){
       this.pagFrom += 20;
