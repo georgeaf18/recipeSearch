@@ -39,6 +39,7 @@ h1 {
     width: 100%;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
+    justify-content: center;
 }
 
 .modal-content {
@@ -50,7 +51,7 @@ h1 {
 
 .recipe_div {
     background-color: rgb(237, 237, 237);
-    width: 160px;
+    width: 180px;
     padding: 20px;
     margin: 5px;
     display: flex;
