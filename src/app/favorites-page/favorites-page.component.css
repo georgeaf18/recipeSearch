@@ -1,44 +1,52 @@
-/******************************** header styles ********************************/
-h1 {
-    text-align: center;
-    cursor: default;
+.logo {
+    width: 50%;
+    display: flex;
+    margin: auto;
+    padding: 5px;
 }
-
-/******************************** recipes styles ********************************/
 
 .favorites-container {
     display: flex;
     flex-direction: row;  
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    margin: auto;
 }
 
 .favorites-recipe_div {
-    border: solid black .5px;
+    background-color: rgb(237, 237, 237);
     width: 160px;
     padding: 20px;
-    margin: 40px;
+    margin: 5px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
     font-size: 10px;
     flex-wrap: wrap;
-}
-
-.favorites-recipe_heading {
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.favorites-image-container {
-    position: relative;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
 }
 
 .favorites-recipe_img {
     width: 100%;
     max-width: 160px;
     margin: auto;
+
+}
+
+.favorites-recipe_heading {
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    margin: auto;
+
+}
+
+.favorites-image-container {
+    position: relative;
 }
 
 .fa-heart{
@@ -53,16 +61,33 @@ h1 {
     color: gray;
 }
 
+.homeButton {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+ }
+ 
+ .homeButton:hover {
+    color:#007bff;
+ }
+
+
 .red {
     color: hsl(0, 73%, 42%)!important;
 }
-
 /******************************** modal styles ********************************/
-.modal {
-    margin-top: 10px;
-}
 
 .modal-content {
-    padding: 15px 25px 25px 25px;
-    border: 2px solid black;
+    margin-top: 10px;
+    padding: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
 }
+
+
+
+
