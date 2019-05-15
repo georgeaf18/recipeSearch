@@ -4,6 +4,10 @@
     margin: 10px;
 }
 
+#favorite-home:hover {
+    color: #58595b;
+}
+
 .red {
     color: hsl(0, 73%, 42%)!important;
  }
@@ -94,6 +98,10 @@ h1 {
     font-weight: lighter;
     font-size: 20px;
     color: hsl(0, 73%, 42%);
+}
+
+.favorites:hover {
+    color: #58595b;
 }
 
 .image-container {

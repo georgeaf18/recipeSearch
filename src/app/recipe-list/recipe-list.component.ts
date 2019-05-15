@@ -9,12 +9,9 @@ interface RecipeInfo {
   totalTime: number;
   calories: number;
   healthLabels: string;
-  bookmarked: boolean;
-
 }
 
 interface Recipe {
-  count: number;
   recipe: RecipeInfo[];
   bookmarked: boolean;
 }
@@ -35,8 +32,6 @@ interface ApiData {
 
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
-  bookmarked: boolean;
-  favorites: Recipe[];
   searchInput: String;
   health: string = 'alcohol-free';
   numberIngr: string = '2+';
@@ -53,7 +48,15 @@ export class RecipeListComponent implements OnInit {
   
 
   ngOnInit() {
-    this.api.recipes.subscribe(data => this.recipes = data);
+    this.api.recipes.subscribe(data => {
+      //console.log('favssss', this.api.favorites)
+      this.recipes = data.map(item => {
+        const recipe = this.api.favorites.find(i => i.recipe.image === item.recipe.image);
+        console.log('recipeeeeee', recipe);
+        item.bookmarked = false;
+        return recipe ? recipe : item;
+      });
+    });
   }
 
   console = (index) => {
@@ -68,38 +71,31 @@ export class RecipeListComponent implements OnInit {
 
   changePag = (where) => {
     if (where === true){
-      this.pagFrom += 20;
-      this.pagTo += 20;
-      this.filterRecipes();
+        this.pagFrom += 20;
+        this.pagTo += 20;
+        this.filterRecipes();
     } else if (where === false){
       if(this.pagFrom > 0 ){
-      this.pagFrom -= 20;
-      this.pagTo -= 20;
-      this.filterRecipes();
+        this.pagFrom -= 20;
+        this.pagTo -= 20;
+        this.filterRecipes();
       } 
-
-
     }
   }
 
   filterRecipes = () => {
-
     this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr), this.pagFrom, this.pagTo ).subscribe((data: ApiData) => {
       this.api.updateRecipes(data.hits);
-    });
-    
-    
+    }); 
   }
 
   newSearchCriteria = (event) => {
     this.searchInput = event;
   }
 
-  
-  
-  addFavorite = (recipe) => {
-    this.recipes[recipe].bookmarked = !this.recipes[recipe].bookmarked;
-    this.api.updateRecipes(this.recipes);
+  addFavorite = (recipeIndex) => {
+    this.recipes[recipeIndex].bookmarked = !this.recipes[recipeIndex].bookmarked;
+    this.api.addFavorite(this.recipes[recipeIndex]);
   };
 
 

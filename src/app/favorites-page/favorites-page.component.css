@@ -3,6 +3,7 @@ h1 {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
 }
+
 .fa-home {
     font-size: 50px;
     color: hsl(0, 73%, 42%);
@@ -28,6 +29,10 @@ h1 {
     top: 10px;
 }
 
+.homeButton:hover {
+    color:#007bff;
+}
+
 .favorites-container {
     display: flex;
     flex-direction: row;  
@@ -36,7 +41,7 @@ h1 {
 }
 
 .favorites-recipe_div {
-    border: solid black .5px;
+    background-color: rgb(237, 237, 237);
     width: 160px;
     padding: 20px;
     margin: 40px;
@@ -47,18 +52,30 @@ h1 {
     flex-wrap: wrap;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
+    position: relative;
 }
 
 .favorites-recipe_img {
     width: 100%;
     max-width: 160px;
     margin: auto;
-
 }
 
 .favorites-recipe_heading {
+    padding-top: 5px;
     text-align: center;
     font-size: 15px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
+}
+ 
+.fa-heart { 
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    font-size: 15px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    color:  hsl(0, 73%, 42%);
 }

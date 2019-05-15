@@ -13,13 +13,13 @@ favorites: any[];
   constructor(private api: Api) { }
 
   ngOnInit() {
-    this.api.recipes.subscribe(data => this.favorites = data.filter(recipe => recipe.bookmarked));
+    this.favorites = this.api.favorites;
   }
 
   
-  addFavorite = (recipe) => {
-    this.favorites[recipe].bookmarked = !this.favorites[recipe].bookmarked;
-    this.api.updateRecipes(this.favorites);
+  removeFavorite = (recipeIndex) => {
+    this.api.removeFavorite(this.favorites[recipeIndex]);
+    this.favorites = this.favorites.filter((item, index) => index !== recipeIndex);
   };
 }
 
