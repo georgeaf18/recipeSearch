@@ -3,7 +3,7 @@
 <i id="favorite-home" class="fa fa-heart"   
   routerLink="favorites" 
   routerLinkActive="active"
-  [routerLinkActiveOptions]="{ exact: true }"><span class="favorites">&nbsp;&nbsp;favorites</span></i>
+  [routerLinkActiveOptions]="{ exact: true }" style="outline: none"><span class="favorites">&nbsp;&nbsp;favorites</span></i>
 
 
 <app-search-criteria (searched) = 'newSearchCriteria($event)'></app-search-criteria>
@@ -23,9 +23,11 @@
   <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
 </div>
 
+
 <div *ngIf ='recipes.length' class='pag_btns'>
-  <a href="#top"><i (click)= 'changePag(false)' class="fas fa-long-arrow-alt-left"></i></a>
-  <a href="#top"><i (click)= 'changePag(true)' class="fas fa-long-arrow-alt-right"></i></a>
+  <a href="#top"><i (click)='changePag(false)' class="fas fa-long-arrow-alt-left"></i></a>
+  <a href="#top"><i (click)='changePag(true)' class="fas fa-long-arrow-alt-right"></i></a>
+
 </div>
 
 <div *ngIf="this.modalRecipe" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

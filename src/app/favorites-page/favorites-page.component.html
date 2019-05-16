@@ -2,15 +2,21 @@
 
 <div routerLink="/"
 routerLinkActive="active"
-class="homeButton"
+
+class="homeButton" 
 style="outline: none"
->home</div>
+>Home</div>
+
 
 <div class="favorites-container">
   
   <div class="favorites-recipe_div"  *ngFor='let favorite of favorites; let i = index'>
+
+    <i class="fa fa-heart" (click)= "removeFavorite(i)"  [ngClass] = "{'red': favorite.bookmarked === true}"></i>
+
     
     <div class="favorites-image-container">
+
 
       <a href={{favorite.recipe.url}}><img class='favorites-recipe_img' src={{favorite.recipe.image}} alt=""></a>
   
@@ -34,7 +40,7 @@ style="outline: none"
         
         <p>Kcal: {{ this.modalRecipe.calories | number: '1.0-0'}}</p>
 
-        <a href={{this.modalRecipe.url}} target="_blank">See more details...</a>
+        <a href={{this.modalRecipe.url}} target="_blank"><button type="button" class="btn btn-primary">Source</button></a>
 
       </div>
     </div>
