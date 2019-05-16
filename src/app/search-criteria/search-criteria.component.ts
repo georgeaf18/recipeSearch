@@ -46,9 +46,6 @@ export class SearchCriteriaComponent implements OnInit {
   pagTo: number = 20;
 
 
-
-
-
   filterRecipes = () => {
     this.api.getRecipe(this.searchInput, this.health, encodeURIComponent(this.numberIngr), this.pagFrom, this.pagTo ).subscribe((data: ApiData) => {
       this.api.updateRecipes(data.hits);

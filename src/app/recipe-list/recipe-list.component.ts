@@ -52,9 +52,13 @@ export class RecipeListComponent implements OnInit {
       //console.log('favssss', this.api.favorites)
       this.recipes = data.map(item => {
         const recipe = this.api.favorites.find(i => i.recipe.image === item.recipe.image);
-        console.log('recipeeeeee', recipe);
         item.bookmarked = false;
-        return recipe ? recipe : item;
+        if (recipe) {
+          recipe.bookmarked = true;
+          return recipe
+        } else {
+          return item;
+        }
       });
     });
   }
