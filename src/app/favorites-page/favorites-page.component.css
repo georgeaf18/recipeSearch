@@ -1,0 +1,98 @@
+
+.logo {
+    width: 50%;
+    display: flex;
+    margin: auto;
+    padding: 5px;
+}
+
+.homeButton {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+ }
+ 
+ .homeButton:hover {
+    color:#007bff;
+ }
+
+.favorites-container {
+    display: flex;
+    flex-direction: row;  
+    flex-wrap: wrap;
+    width: 80%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    margin: auto;
+}
+
+.favorites-recipe_div {
+    background-color: rgb(237, 237, 237);
+    width: 160px;
+    padding: 20px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    font-size: 10px;
+    flex-wrap: wrap;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+}
+
+.favorites-recipe_img {
+    width: 100%;
+    max-width: 160px;
+    margin: auto;
+
+}
+
+.favorites-recipe_heading {
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    margin: auto;
+
+}
+
+.favorites-image-container {
+    position: relative;
+}
+
+.fa-heart{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    font-size: 15px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    /* color: hsl(0, 73%, 42%); */
+    color: gray;
+}
+
+.red {
+    color: hsl(0, 73%, 42%)!important;
+}
+
+.btn-primary {
+    margin-top: 5px;
+}
+/******************************** modal styles ********************************/
+
+.modal-content {
+    margin-top: 10px;
+    padding: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+}
+
+
+
+
+

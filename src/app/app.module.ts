@@ -5,9 +5,11 @@ import { FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { SearchCriteriaComponent } from './search-criteria/search-criteria.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
+import { Api } from './services/api.service';
+import { SearchCriteriaComponent} from './search-criteria/search-criteria.component'
+
 
 const appRoutes: Routes = [
   {path: '', component: RecipeListComponent},
@@ -18,9 +20,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SearchCriteriaComponent,
     RecipeListComponent,
-    FavoritesPageComponent
+    FavoritesPageComponent,
+    SearchCriteriaComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [Api],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

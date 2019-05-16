@@ -1,9 +1,35 @@
-.search {
+#favorite-home {
+    font-size: 20px;
+    color: hsl(0, 73%, 42%);
+    margin: 10px;
+}
+
+.red {
+    color: hsl(0, 73%, 42%)!important;
+ }
+
+h1 {
     text-align: center;
 }
 
-.search_button {
-    width: 200px;
+
+/******************************** recipes styles ********************************/
+
+.logo {
+    width: 50%;
+    display: flex;
+    margin: auto;
+    padding: 5px;
+}
+
+.pag_btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.pag_btns i {
+    font-size: 2rem;
 }
 
 .container {
@@ -11,22 +37,71 @@
     flex-direction: row;  
     flex-wrap: wrap;
     width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    justify-content: center;
+}
+
+.modal-content {
+    margin-top: 10px;
+    padding: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
 }
 
 .recipe_div {
-    border: solid black 2px;
-    width: 30%;
-    padding: 10px;
-    margin: 10px;
+    background-color: rgb(237, 237, 237);
+    width: 180px;
+    padding: 20px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    font-size: 10px;
+    flex-wrap: wrap;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+
 }
 
 .recipe_img {
-    width: 200px;
-    height: 200px;
-    margin: 50px auto;
-    display: block;
+    width: 100%;
+    max-width: 160px;
+    margin: auto;
+
 }
 
 .recipe_heading {
     text-align: center;
+    font-size: 15px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    margin: auto;
+}
+
+.fa-heart{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    font-size: 15px;
+    color: gray;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    /* color: hsl(0, 73%, 42%); */
+}
+
+.favorites {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    color: hsl(0, 73%, 42%);
+}
+
+.image-container {
+    position: relative;
+}
+
+.btn-primary {
+    margin-top: 5px;
 }
