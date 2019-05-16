@@ -9,25 +9,25 @@
 <app-search-criteria (searched) = 'newSearchCriteria($event)'></app-search-criteria>
 
 
-<div class="container">
+<div  class="container">
 
-
-  <div class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
+  <div  class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
   
     <div class="image-container">
     <img class='recipe_img' src={{recipe.recipe.image}} alt="">
     <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
-    <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
  
   </div>  
 
   <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button>
-
+  <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
 </div>
 
-<div class='pag_btns'>
+
+<div *ngIf ='recipes.length' class='pag_btns'>
   <a href="#top"><i (click)='changePag(false)' class="fas fa-long-arrow-alt-left"></i></a>
   <a href="#top"><i (click)='changePag(true)' class="fas fa-long-arrow-alt-right"></i></a>
+
 </div>
 
 <div *ngIf="this.modalRecipe" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -41,7 +41,7 @@
            <li *ngFor = 'let modalIngredient of this.modalRecipe.ingredientLines; let i=index'>{{modalIngredient}}</li>
         </ul>
         
-        <p>Kcal: {{ this.modalCalories }}</p>
+        <p>Kcal: {{ this.modalRecipe.calories | number: '1.0-0'}}</p>
         <a href={{this.modalUrl}} target="_blank"><button type="button" class="btn btn-primary">Source</button></a>
       </div>
     </div>

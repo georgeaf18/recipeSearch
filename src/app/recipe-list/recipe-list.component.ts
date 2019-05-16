@@ -39,7 +39,6 @@ export class RecipeListComponent implements OnInit {
   pagTo: number = 20;
   modalIndex: number;
   modalRecipe;
-  modalCalories: number;
   modalUrl: string;
 
   
@@ -69,9 +68,9 @@ export class RecipeListComponent implements OnInit {
 
   show = (i) => {
     this.modalRecipe = this.recipes[i].recipe;
-    this.modalCalories = Math.round(this.modalRecipe.calories);
     this.modalUrl = this.modalRecipe.url;
   }
+
 
   changePag = (where) => {
     if (where === true){

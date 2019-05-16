@@ -43,7 +43,9 @@ h1 {
     width: 100%;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
+    justify-content: center;
 }
+
 
 .modal-content {
     margin-top: 10px;
@@ -54,7 +56,7 @@ h1 {
 
 .recipe_div {
     background-color: rgb(237, 237, 237);
-    width: 160px;
+    width: 180px;
     padding: 20px;
     margin: 5px;
     display: flex;
@@ -77,8 +79,9 @@ h1 {
 .recipe_heading {
     text-align: center;
     font-size: 15px;
-    font-weight: bold;
-    padding-top: 7px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: lighter;
+    margin: auto;
 }
 
 .fa-heart{
@@ -108,3 +111,6 @@ h1 {
     position: relative;
 }
 
+.btn-primary {
+    margin-top: 5px;
+}

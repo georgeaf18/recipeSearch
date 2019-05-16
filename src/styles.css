@@ -2,5 +2,13 @@
 html {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: lighter;
+    font-size: 15px;
     scroll-behavior: smooth;
+    
 }
+
+*:focus {
+    outline: 0;
+    outline: none;
+    }
+

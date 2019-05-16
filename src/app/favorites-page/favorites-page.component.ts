@@ -7,12 +7,17 @@ import { Api } from '../services/api.service';
   styleUrls: ['./favorites-page.component.css']
 })
 export class FavoritesPageComponent implements OnInit {
- 
 favorites: any[];
+modalIndex: number;
+modalRecipe: any[];
+bookmarked: boolean;
+recipes: any[];
+
 
   constructor(private api: Api) { }
 
   ngOnInit() {
+
     this.favorites = this.api.favorites;
   }
 
@@ -20,19 +25,14 @@ favorites: any[];
   removeFavorite = (recipeIndex) => {
     this.api.removeFavorite(this.favorites[recipeIndex]);
     this.favorites = this.favorites.filter((item, index) => index !== recipeIndex);
+
   };
+
+
+
+  show = (i) => {
+    this.modalRecipe = this.favorites[i].recipe;
+  }
+
+
 }
-
-  // addFavorite = (i) => {
-  //   this.recipes[i].bookmarked = true;
-  //    this.favorites.push(this.recipes[i]);
-  //   };
-  
-    
-    // unFavorite = (index) => {
-    //   this.favorites[index].bookmarked = false;
-    //   this.favorites.splice(index, 1);
-    // }
-
-
-
