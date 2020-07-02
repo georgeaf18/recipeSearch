@@ -1,48 +1,81 @@
-<div id='top'><img class="logo" src="assets/img/logo.png" alt="logo"/></div>
+<div id="top"><img class="logo" src="assets/img/logo.png" alt="logo" /></div>
 
-<div routerLink="/"
-routerLinkActive="active"
-
-class="homeButton" 
-style="outline: none"
->Home</div>
-
+<div
+  routerLink="/"
+  routerLinkActive="active"
+  class="homeButton"
+  style="outline: none"
+>
+  Home
+</div>
 
 <div class="favorites-container">
-  
-  <div class="favorites-recipe_div"  *ngFor='let favorite of favorites; let i = index'>
+  <ng-container *ngIf="favorites.length > 0; else noFavorite">
+    <div
+      class="favorites-recipe_div"
+      *ngFor="let favorite of favorites; let i = index"
+    >
+      <div class="favorites-image-container">
+        <a href="{{ favorite.recipe.url }}"
+          ><img
+            class="favorites-recipe_img"
+            src="{{ favorite.recipe.image }}"
+            alt=""
+        /></a>
 
-    
-    
-    <div class="favorites-image-container">
-      
-      
-      <a href={{favorite.recipe.url}}><img class='favorites-recipe_img' src={{favorite.recipe.image}} alt=""></a>
-      
-      <i class="fa fa-heart" (click)= "removeFavorite(i)"  [ngClass] = "{'red': favorite.bookmarked === true}"></i>
-      
-    </div>  
-  
-    <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button>
-    <h1 class='favorites-recipe_heading'>{{favorite.recipe.label}}</h1>
-  </div>
+        <i
+          class="fa fa-heart"
+          (click)="removeFavorite(i)"
+          [ngClass]="{ red: favorite.bookmarked === true }"
+        ></i>
+      </div>
 
-<div *ngIf="this.modalRecipe" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <button
+        (click)="show(i)"
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target=".bd-example-modal-lg"
+      >
+        More info
+      </button>
+      <h1 class="favorites-recipe_heading">{{ favorite.recipe.label }}</h1>
+    </div>
+  </ng-container>
+  <ng-template #noFavorite>
+    <h3 class="text-primary">You have no favorites selected</h3>
+  </ng-template>
+
+  <div
+    *ngIf="this.modalRecipe"
+    class="modal fade bd-example-modal-lg"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myLargeModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <h1>{{this.modalRecipe.label}}</h1>
-        
+        <h1>{{ this.modalRecipe.label }}</h1>
+
         <h3>Ingredients</h3>
-        <ul >
-           <li *ngFor = 'let modalIngredient of this.modalRecipe.ingredientLines; let i=index'>{{modalIngredient}}</li>
+        <ul>
+          <li
+            *ngFor="
+              let modalIngredient of this.modalRecipe.ingredientLines;
+              let i = index
+            "
+          >
+            {{ modalIngredient }}
+          </li>
         </ul>
-        
-        <p>Kcal: {{ this.modalRecipe.calories | number: '1.0-0'}}</p>
 
-        <a href={{this.modalRecipe.url}} target="_blank"><button type="button" class="btn btn-primary">Source</button></a>
+        <p>Kcal: {{ this.modalRecipe.calories | number: "1.0-0" }}</p>
 
+        <a href="{{ this.modalRecipe.url }}" target="_blank"
+          ><button type="button" class="btn btn-primary">Source</button></a
+        >
       </div>
     </div>
   </div>
-
 </div>
