@@ -1,51 +1,81 @@
-<div id='top'><img class="logo" src="assets/img/logo.png" alt="logo"/></div>
+<div id="top"><img class="logo" src="assets/img/logo.png" alt="logo" /></div>
 
-<i id="favorite-home" class="fa fa-heart"   
-  routerLink="favorites" 
+<i
+  id="favorite-home"
+  class="fa fa-heart"
+  routerLink="favorites"
   routerLinkActive="active"
-  [routerLinkActiveOptions]="{ exact: true }" style="outline: none"><span class="favorites">&nbsp;&nbsp;favorites</span></i>
+  [routerLinkActiveOptions]="{ exact: true }"
+  style="outline: none"
+  ><span class="favorites">&nbsp;&nbsp;favorites</span></i
+>
 
+<app-search-criteria
+  (searched)="newSearchCriteria($event)"
+></app-search-criteria>
 
-<app-search-criteria (searched) = 'newSearchCriteria($event)'></app-search-criteria>
-
-
-<div  class="container">
-
-  <div  class="recipe_div"  *ngFor='let recipe of recipes; let i = index'>
-  
+<div class="container">
+  <div class="recipe_div" *ngFor="let recipe of recipes; let i = index">
     <div class="image-container">
-    <img class='recipe_img' src={{recipe.recipe.image}} alt="">
-    <i class="fa fa-heart" (click)= "addFavorite(i)"  [ngClass] = "{'red': recipe.bookmarked === true}"></i>
- 
-  </div>  
+      <img class="recipe_img" src="{{ recipe.recipe.image }}" alt="" />
+      <i
+        class="fa fa-heart"
+        (click)="addFavorite(i)"
+        [ngClass]="{ red: recipe.bookmarked === true }"
+      ></i>
+    </div>
 
-  <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button>
-  <h1 class='recipe_heading'>{{recipe.recipe.label}}</h1>
-</div>
+    <button
+      (click)="show(i)"
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target=".bd-example-modal-lg"
+    >
+      More info
+    </button>
+    <h1 class="recipe_heading">{{ recipe.recipe.label }}</h1>
+  </div>
 
+  <div *ngIf="recipes.length" class="pag_btns">
+    <a href="#top"
+      ><i (click)="changePag(false)" class="fas fa-long-arrow-alt-left"></i
+    ></a>
+    <a href="#top"
+      ><i (click)="changePag(true)" class="fas fa-long-arrow-alt-right"></i
+    ></a>
+  </div>
 
-<div *ngIf ='recipes.length' class='pag_btns'>
-  <a href="#top"><i (click)='changePag(false)' class="fas fa-long-arrow-alt-left"></i></a>
-  <a href="#top"><i (click)='changePag(true)' class="fas fa-long-arrow-alt-right"></i></a>
-
-</div>
-
-<div *ngIf="this.modalRecipe" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div
+    *ngIf="this.modalRecipe"
+    class="modal fade bd-example-modal-lg"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myLargeModalLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <h1>{{this.modalRecipe.label}}</h1>
-        
+        <h1>{{ this.modalRecipe.label }}</h1>
+
         <h3>Ingredients</h3>
 
-        <ul >
-           <li *ngFor = 'let modalIngredient of this.modalRecipe.ingredientLines; let i=index'>{{modalIngredient}}</li>
+        <ul>
+          <li
+            *ngFor="
+              let modalIngredient of this.modalRecipe.ingredientLines;
+              let i = index
+            "
+          >
+            {{ modalIngredient }}
+          </li>
         </ul>
-        
-        <p>Kcal: {{ this.modalRecipe.calories | number: '1.0-0'}}</p>
-        <a href={{this.modalUrl}} target="_blank"><button type="button" class="btn btn-primary">Source</button></a>
+
+        <p>Kcal: {{ this.modalRecipe.calories | number: "1.0-0" }}</p>
+        <a href="{{ this.modalUrl }}" target="_blank"
+          ><button type="button" class="btn btn-primary">Source</button></a
+        >
       </div>
     </div>
   </div>
-
-
 </div>
